@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: a4e63fed86cd6a047a1ede06d04577e3
+  productGUID: 6a813072bc009ab46a08d2f080c2ec51
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: CS178Project
+  productName: Smashy
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -595,14 +595,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: CS178Project
+  metroPackageName: Smashy
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: CS178Project
+  metroApplicationDescription: Smashy
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -671,11 +671,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: feae6491-973d-4892-ab28-59497d90b3d2
+  cloudProjectId: 78fcd90d-8557-485a-9ded-b07cfc678563
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: CS178Project 2024-10-03_10-26-32
-  organizationId: saucyboss
+  projectName: Smashy 2024-10-01_19-42-14
+  organizationId: ampherost
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
