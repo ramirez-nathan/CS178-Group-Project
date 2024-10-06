@@ -4,25 +4,34 @@ using UnityEngine;
 
 public class stickManScript : MonoBehaviour
 {
-    public Rigidbody2D stickRigidBody;
-    public GameObject stage;
-    public Sprite attack;
-    private Sprite defaultSprite;
-    private SpriteRenderer spriteRenderer;
-    private bool isOnStage = true;
-    private int jumpCount = 0;         
-    private const int maxJumps = 2;
-    public float jumpForce = 12f;
-    public int health = 100;
-    public float attackDuration = 0.3f;
+    // Components and References
+    public Rigidbody2D stickRigidBody;   // Reference to the player's Rigidbody2D for physics and movement.
+    public GameObject stage;             // Reference to the stage GameObject (for ground checks).
+    private SpriteRenderer spriteRenderer; // SpriteRenderer for changing player sprites.
+
+    // Sprites
+    public Sprite attack;                // Sprite for the attack action.
+    private Sprite defaultSprite;        // Stores the default sprite to revert after an attack.
+
+    // Jumping Mechanics
+    private bool isOnStage = true;       // Tracks if the player is on the stage (grounded).
+    private int jumpCount = 0;           // Tracks the number of jumps performed.
+    private const int maxJumps = 2;      // Maximum number of allowed jumps (double jump).
+    public float jumpForce = 12f;        // Jump force applied to the player when jumping.
+
+    // Combat and Health
+    public int health = 100;             // Player's health points.
+    public float attackDuration = 0.3f;  // Duration the attack sprite stays visible before reverting.
+
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        defaultSprite = spriteRenderer.sprite;
-        gameObject.name = "stickManFighter";
+        spriteRenderer = GetComponent<SpriteRenderer>();  // Get and store the SpriteRenderer component attached to this GameObject.
+        defaultSprite = spriteRenderer.sprite;            // Store the initial sprite from the SpriteRenderer as the default sprite.
+        gameObject.name = "stickManFighter";              // Rename the GameObject to "stickManFighter" for better identification in the hierarchy.
     }
+
 
     // Update is called once per frame
     void Update()
@@ -32,15 +41,15 @@ public class stickManScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            currentVelocity.x = -10; // Move left
+            currentVelocity.x = -10; // Moves left
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            currentVelocity.x = 10; // Move right
+            currentVelocity.x = 10; // Moves right
         }
         else
         {
-            currentVelocity.x = 0; // Stop horizontal movement when no keys are pressed
+            currentVelocity.x = 0; // Stops horizontal movement when no keys are pressed
         }
 
         // Jumping
