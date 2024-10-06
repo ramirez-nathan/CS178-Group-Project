@@ -7,6 +7,8 @@ public class stickManScript : MonoBehaviour
     public Rigidbody2D stickRigidBody;
     public GameObject stage;
     private bool isOnStage = true;
+    private int jumpCount = 0;         
+    private const int maxJumps = 2;
 
     // Start is called before the first frame update
     void Start()
