@@ -63,7 +63,7 @@ public class stickManScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            spriteRenderer.sprite = attack;
+            StartCoroutine(PerformAttack());
         }
 
 
@@ -81,7 +81,7 @@ public class stickManScript : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
 
         // Revert to the idle sprite
-        // spriteRenderer.sprite = idleSprite;
+        spriteRenderer.sprite = defaultSprite;
     }
 
     //private void Jump()
