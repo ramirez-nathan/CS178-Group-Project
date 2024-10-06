@@ -36,14 +36,29 @@ public class stickManScript : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode.Space) && (isOnStage))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            currentVelocity.y = 12; // Apply upward velocity when space is pressed
-            jumpCount++;    
+            // First jump only allowed if on the stage
+            if (isOnStage && jumpCount == 0)
+            {
+                Jump();
+            }
+            // Allow a second jump while airborne (double jump)
+            else if (jumpCount == 1)
+            {
+                Jump();
+            }
         }
 
         // Apply the velocity back to the Rigidbody2D
         stickRigidBody.velocity = currentVelocity;
+    }
+
+    private void Jump()
+    {
+        Vector2 currentVelocity = stickRigidBody.velocity;
+        currentVelocity.y = 12;
+        jumpCount++;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
