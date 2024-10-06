@@ -51,6 +51,7 @@ public class stickManScript : MonoBehaviour
         if (collision.gameObject == stage)
         {
             isOnStage = true;
+            jumpCount = 0;
         }
     }
 
