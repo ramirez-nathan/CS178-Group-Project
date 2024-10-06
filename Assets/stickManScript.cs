@@ -10,6 +10,7 @@ public class stickManScript : MonoBehaviour
     private int jumpCount = 0;         
     private const int maxJumps = 2;
     public float jumpForce = 12f;
+    public int health = 100;
 
     // Start is called before the first frame update
     void Start()
