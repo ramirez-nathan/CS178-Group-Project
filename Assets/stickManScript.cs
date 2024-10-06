@@ -42,14 +42,17 @@ public class stickManScript : MonoBehaviour
             // First jump only allowed if on the stage
             if (isOnStage && jumpCount == 0)
             {
-                Jump();
+                currentVelocity.y = jumpForce; // Apply upward velocity for first jump
+                jumpCount++;
             }
             // Allow a second jump while airborne (double jump)
             else if (jumpCount == 1)
             {
-                Jump();
+                currentVelocity.y = jumpForce; // Apply upward velocity for second jump
+                jumpCount++;
             }
-        }
+  
+    }
 
         // Apply the velocity back to the Rigidbody2D
         stickRigidBody.velocity = currentVelocity;
@@ -57,13 +60,12 @@ public class stickManScript : MonoBehaviour
 
     private void Jump()
     {
-        stickRigidBody.velocity = new Vector2(stickRigidBody.velocity.y, jumpForce);
-        jumpCount++; // Increment jump count
+        stickRigidBody.velocity = new Vector2(stickRigidBody.velocity.x, jumpForce);
+        jumpCount++; 
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)      // Checks if player is on the stage
     {
-        // Check if the player is colliding with the stage
         if (collision.gameObject == stage)
         {
             isOnStage = true;
@@ -71,9 +73,8 @@ public class stickManScript : MonoBehaviour
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)       // Sets on stage to false when player leaves the stage
     {
-        // Set isOnStage to false when the player leaves the stage
         if (collision.gameObject == stage)
         {
             isOnStage = false;
