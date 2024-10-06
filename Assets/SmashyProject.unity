@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickRigidBody: {fileID: 392763472}
+  stage: {fileID: 0}
 --- !u!61 &392763471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1174,6 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickRigidBody: {fileID: 1228725976}
+  stage: {fileID: 1345803990}
 --- !u!61 &1228725980
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class stickManScript : MonoBehaviour
 {
     public Rigidbody2D stickRigidBody;
     public GameObject stage;
+    private bool isOnStage = true;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +34,30 @@ public class stickManScript : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && (isOnStage))
         {
             currentVelocity.y = 12; // Apply upward velocity when space is pressed
         }
 
         // Apply the velocity back to the Rigidbody2D
         stickRigidBody.velocity = currentVelocity;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if the player is colliding with the stage
+        if (collision.gameObject == stage)
+        {
+            isOnStage = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        // Set isOnStage to false when the player leaves the stage
+        if (collision.gameObject == stage)
+        {
+            isOnStage = false;
+        }
     }
 }
