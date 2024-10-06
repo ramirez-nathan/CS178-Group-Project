@@ -39,6 +39,7 @@ public class stickManScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && (isOnStage))
         {
             currentVelocity.y = 12; // Apply upward velocity when space is pressed
+            jumpCount++;    
         }
 
         // Apply the velocity back to the Rigidbody2D
