@@ -7,6 +7,7 @@ public class stickManScript : MonoBehaviour
     public Rigidbody2D stickRigidBody;
     public GameObject stage;
     public Sprite attack;
+    private Sprite defaultSprite;
     private SpriteRenderer spriteRenderer;
     private bool isOnStage = true;
     private int jumpCount = 0;         
@@ -67,6 +68,19 @@ public class stickManScript : MonoBehaviour
 
         // Apply the velocity back to the Rigidbody2D
         stickRigidBody.velocity = currentVelocity;
+    }
+
+    // Coroutine to handle the attack animation and revert to idle
+    private IEnumerator PerformAttack()
+    {
+        // Change to the attack sprite
+        spriteRenderer.sprite = attack;
+
+        // Wait for the duration of the attack
+        yield return new WaitForSeconds(attackDuration);
+
+        // Revert to the idle sprite
+        // spriteRenderer.sprite = idleSprite;
     }
 
     //private void Jump()
