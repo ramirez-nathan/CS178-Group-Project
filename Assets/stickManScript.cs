@@ -5,6 +5,7 @@ using UnityEngine;
 public class stickManScript : MonoBehaviour
 {
     public Rigidbody2D stickRigidBody;
+    public GameObject stage;
 
     // Start is called before the first frame update
     void Start()
