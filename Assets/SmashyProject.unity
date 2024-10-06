@@ -156,6 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stickRigidBody: {fileID: 392763472}
   stage: {fileID: 0}
+  attack: {fileID: 0}
+  jumpForce: 12
+  health: 100
 --- !u!61 &392763471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1176,6 +1179,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stickRigidBody: {fileID: 1228725976}
   stage: {fileID: 1345803990}
+  attack: {fileID: 21300000, guid: a3a5dc45236dacc42a32fa7e7110ba7b, type: 3}
+  jumpForce: 12
+  health: 100
 --- !u!61 &1228725980
 BoxCollider2D:
   m_ObjectHideFlags: 0
