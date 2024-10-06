@@ -17,6 +17,7 @@ public class stickManScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         gameObject.name = "stickManFighter";
     }
 
@@ -56,6 +57,12 @@ public class stickManScript : MonoBehaviour
             }
   
     }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            spriteRenderer.sprite = attack;
+        }
+
 
         // Apply the velocity back to the Rigidbody2D
         stickRigidBody.velocity = currentVelocity;
