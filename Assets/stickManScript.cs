@@ -14,7 +14,7 @@ public class stickManScript : MonoBehaviour
     private const int maxJumps = 2;
     public float jumpForce = 12f;
     public int health = 100;
-    public float attackDuration = 0.5f;
+    public float attackDuration = 0.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -79,6 +79,8 @@ public class stickManScript : MonoBehaviour
 
         // Wait for the duration of the attack
         yield return new WaitForSeconds(attackDuration);
+
+        Debug.Log("Swing");
 
         // Revert to the idle sprite
         spriteRenderer.sprite = defaultSprite;
