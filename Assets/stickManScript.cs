@@ -6,6 +6,7 @@ public class stickManScript : MonoBehaviour
 {
     public Rigidbody2D stickRigidBody;
     public GameObject stage;
+    public GameObject attack;
     private bool isOnStage = true;
     private int jumpCount = 0;         
     private const int maxJumps = 2;
