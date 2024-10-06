@@ -9,6 +9,7 @@ public class stickManScript : MonoBehaviour
     private bool isOnStage = true;
     private int jumpCount = 0;         
     private const int maxJumps = 2;
+    public float jumpForce = 12f;
 
     // Start is called before the first frame update
     void Start()
@@ -56,9 +57,8 @@ public class stickManScript : MonoBehaviour
 
     private void Jump()
     {
-        Vector2 currentVelocity = stickRigidBody.velocity;
-        currentVelocity.y = 12;
-        jumpCount++;
+        stickRigidBody.velocity = new Vector2(stickRigidBody.velocity.y, jumpForce);
+        jumpCount++; // Increment jump count
     }
 
     void OnCollisionEnter2D(Collision2D collision)
