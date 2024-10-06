@@ -58,11 +58,11 @@ public class stickManScript : MonoBehaviour
         stickRigidBody.velocity = currentVelocity;
     }
 
-    private void Jump()
-    {
-        stickRigidBody.velocity = new Vector2(stickRigidBody.velocity.x, jumpForce);
-        jumpCount++; 
-    }
+    //private void Jump()
+    //{
+    //    stickRigidBody.velocity = new Vector2(stickRigidBody.velocity.x, jumpForce);
+    //    jumpCount++; 
+    //}
 
     void OnCollisionEnter2D(Collision2D collision)      // Checks if player is on the stage
     {
