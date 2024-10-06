@@ -20,6 +20,7 @@ public class stickManScript : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        defaultSprite = spriteRenderer.sprite;
         gameObject.name = "stickManFighter";
     }
 
