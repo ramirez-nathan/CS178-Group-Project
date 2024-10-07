@@ -22,6 +22,7 @@ public class stickManScript : MonoBehaviour
     // Combat and Health
     public int health = 100;             // Player's health points.
     public float attackDuration = 0.3f;  // Duration the attack sprite stays visible before reverting.
+    public float attackDamage = 0;       // Amount of damage done by an attack
 
 
     // Start is called before the first frame update
