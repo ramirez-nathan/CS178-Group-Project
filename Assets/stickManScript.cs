@@ -55,18 +55,18 @@ public class stickManScript : MonoBehaviour
         // Jumping
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // First jump only allowed if on the stage
-            if (isOnStage && jumpCount == 0)
+            // First jump only allowed if on the stage, Allow a second jump while airborne (double jump)
+            if (jumpCount == 0 || jumpCount == 1)
             {
                 currentVelocity.y = jumpForce; // Apply upward velocity for first jump
                 jumpCount++;
             }
-            // Allow a second jump while airborne (double jump)
+            /*// 
             else if (jumpCount == 1)
             {
                 currentVelocity.y = jumpForce; // Apply upward velocity for second jump
                 jumpCount++;
-            }
+            }*/
   
     }
 
