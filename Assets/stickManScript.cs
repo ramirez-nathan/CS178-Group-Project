@@ -61,12 +61,6 @@ public class stickManScript : MonoBehaviour
                 currentVelocity.y = jumpForce; // Apply upward velocity for first jump
                 jumpCount++;
             }
-            /*// 
-            else if (jumpCount == 1)
-            {
-                currentVelocity.y = jumpForce; // Apply upward velocity for second jump
-                jumpCount++;
-            }*/
   
     }
 
