@@ -25,7 +25,8 @@ public class stickManScript : MonoBehaviour
     public float attackDamage = 0;       // Amount of damage done by an attack
 
     // Out of bounds range, x = +- 11, y = -7
-    private float outOfBoundsX = 11f;
+    private float outOfBoundsXLeft = -11f;
+    private float outOfBoundsXRight = 11f;
     private float outOfBoundsY = -7f;
 
 
@@ -77,6 +78,12 @@ public class stickManScript : MonoBehaviour
 
         // Apply the velocity back to the Rigidbody2D
         stickRigidBody.velocity = currentVelocity;
+
+        if (transform.position.x > outOfBoundsXRight  || transform.position.x  < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
+        {
+            Debug.Log("You have been destroyed");
+            Destroy(gameObject);
+        }
     }
 
     // Coroutine to handle the attack animation and revert to idle
