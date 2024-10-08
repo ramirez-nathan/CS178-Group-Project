@@ -79,6 +79,8 @@ public class stickManScript : MonoBehaviour
         // Apply the velocity back to the Rigidbody2D
         stickRigidBody.velocity = currentVelocity;
 
+
+        // Checks to see if player is out of bounds and destroys player if true
         if (transform.position.x > outOfBoundsXRight  || transform.position.x  < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
         {
             Debug.Log("You have been destroyed");
