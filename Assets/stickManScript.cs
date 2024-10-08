@@ -24,6 +24,10 @@ public class stickManScript : MonoBehaviour
     public float attackDuration = 0.3f;  // Duration the attack sprite stays visible before reverting.
     public float attackDamage = 0;       // Amount of damage done by an attack
 
+    // Out of bounds range, x = +- 11, y = -7
+    private float outOfBoundsX = 11f;
+    private float outOfBoundsY = -7f;
+
 
     // Start is called before the first frame update
     void Start()
