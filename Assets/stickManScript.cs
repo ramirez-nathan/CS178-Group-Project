@@ -67,8 +67,12 @@ public class stickManScript : MonoBehaviour
                 currentVelocity.y = jumpForce; // Apply upward velocity for first jump
                 jumpCount++;
             }
-  
-    }
+        }
+        // When jump key is released, set vert speed to 0 (Jump Cutting)
+        if (Input.GetKeyUp(KeyCode.Space) && currentVelocity.y > 0)
+        {
+            currentVelocity.y = currentVelocity.y * 0.20f;
+        }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -87,6 +91,8 @@ public class stickManScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 
     // Coroutine to handle the attack animation and revert to idle
     private IEnumerator PerformAttack()
