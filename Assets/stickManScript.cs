@@ -90,6 +90,7 @@ public class stickManScript : MonoBehaviour
         {
             Debug.Log("You have been destroyed");
             Destroy(gameObject);
+            deathSound.Play();
         }
     }
 
