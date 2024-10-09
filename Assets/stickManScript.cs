@@ -117,6 +117,9 @@ public class stickManScript : MonoBehaviour
             // Play the sound at the character's position
             AudioSource.PlayClipAtPoint(deathSound.clip, transform.position);
 
+            // Set hp equal to 0
+            health = 0;
+
             // Immediately destroy the GameObject
             Destroy(gameObject);
         }

@@ -17,6 +17,6 @@ public class healthBarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = stickMan.health.ToString();
+        healthText.text = "Player 1 HP: " + stickMan.health.ToString();
     }
 }
