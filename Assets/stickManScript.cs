@@ -112,19 +112,16 @@ public class stickManScript : MonoBehaviour
 
     void PlayDeathSound()
     {
-        if (deathSound != null)
+        if (deathSound != null && deathSound.clip != null)
         {
-            // Detach the AudioSource from the GameObject so it won't be destroyed immediately
-            AudioSource tempAudioSource = Instantiate(deathSound, transform.position, Quaternion.identity);
-            tempAudioSource.Play();
+            // Play the sound at the character's position
+            AudioSource.PlayClipAtPoint(deathSound.clip, transform.position);
 
-            // Destroy the original GameObject immediately, but the tempAudioSource continues playing
+            // Immediately destroy the GameObject
             Destroy(gameObject);
-
-            // Destroy the temporary AudioSource after the clip finishes playing
-            Destroy(tempAudioSource.gameObject, tempAudioSource.clip.length);
         }
     }
+
 
 
 
