@@ -89,8 +89,7 @@ public class stickManScript : MonoBehaviour
         if (transform.position.x > outOfBoundsXRight  || transform.position.x  < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
         {
             Debug.Log("You have been destroyed");
-            Destroy(gameObject);
-            deathSound.Play();
+            PlayDeathSound();
         }
     }
 
@@ -110,6 +109,24 @@ public class stickManScript : MonoBehaviour
         // Revert to the idle sprite
         spriteRenderer.sprite = defaultSprite;
     }
+
+    void PlayDeathSound()
+    {
+        if (deathSound != null)
+        {
+            // Detach the AudioSource from the GameObject so it won't be destroyed immediately
+            AudioSource tempAudioSource = Instantiate(deathSound, transform.position, Quaternion.identity);
+            tempAudioSource.Play();
+
+            // Destroy the original GameObject immediately, but the tempAudioSource continues playing
+            Destroy(gameObject);
+
+            // Destroy the temporary AudioSource after the clip finishes playing
+            Destroy(tempAudioSource.gameObject, tempAudioSource.clip.length);
+        }
+    }
+
+
 
     //private void Jump()
     //{
