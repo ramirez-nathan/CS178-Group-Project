@@ -39,6 +39,26 @@ public class enemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Checks to see if the enemy is out of bounds and destroys enemy if true
+        if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
+        {
+            Debug.Log("You have been destroyed");
+            PlayDeathSound();
+        }
+    }
+
+    void PlayDeathSound()
+    {
+        if (deathSound != null && deathSound.clip != null)
+        {
+            // Play the sound at the character's position
+            AudioSource.PlayClipAtPoint(deathSound.clip, transform.position);
+
+            // Set hp equal to 0
+            health = 0;
+
+            // Immediately destroy the GameObject
+            Destroy(gameObject);
+        }
     }
 }
