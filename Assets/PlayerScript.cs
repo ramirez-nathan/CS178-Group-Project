@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
 
     public float moveSpeedX = 10f; // X Movement Speed of Player
     public float moveSpeedY = 1f; // Y Movement Speed of Player
-    private Vector2 moveDirection; // Direction of Player
+    private Vector2 currentVelocity; // Direction of Player
 
     // Input System 
     public PlayerInputActions playerControls;
@@ -68,11 +68,11 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        QualitySettings.vSyncCount = 0; // Set vSyncCount to 0 so that using .targetFrameRate is enabled.
+        Application.targetFrameRate = 60;
         spriteRenderer = GetComponent<SpriteRenderer>();  // Get and store the SpriteRenderer component attached to this GameObject.
         defaultSprite = spriteRenderer.sprite;            // Store the initial sprite from the SpriteRenderer as the default sprite.
-        //gameObject.name = "stickManFighter";              // Rename the GameObject to "stickManFighter" for better identification in the hierarchy.
         animator = GetComponent<Animator>();              // Initializing the animator
-        // playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
 
@@ -81,7 +81,7 @@ public class PlayerScript : MonoBehaviour
     {
         //ProcessInputs();
         // Store the current velocity to avoid overwriting it
-        Vector2 currentVelocity = playerRigidBody.velocity;
+        currentVelocity = playerRigidBody.velocity;
 
         currentVelocity.x = move.ReadValue<Vector2>().x * 10f; 
 
@@ -94,7 +94,7 @@ public class PlayerScript : MonoBehaviour
         FlipSprite();
 
         // Jumping
-        if (/*Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump")*/ jump.WasPressedThisFrame() ) 
+        if ( jump.WasPressedThisFrame() ) 
         {
             // First jump only allowed if on the stage, Allow a second jump while airborne (double jump)
             if (jumpCount == 0 || jumpCount == 1)
@@ -106,7 +106,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
         // When jump key is released, set vert speed to 0 (Jump Cutting)
-        if (/*(Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump")*/ jump.WasReleasedThisFrame() && currentVelocity.y > 0)
+        if (jump.WasReleasedThisFrame() && currentVelocity.y > 0)
         {
             currentVelocity.y = currentVelocity.y * 0.20f;
         }
@@ -117,16 +117,14 @@ public class PlayerScript : MonoBehaviour
         }
 
 
-        // Apply the velocity back to the Rigidbody2D
-        playerRigidBody.velocity = currentVelocity;
-
-
-        
     }
 
     // Fixed Update is called a set amount of times - Do physics here
     private void FixedUpdate()
     {
+        // Apply the velocity back to the Rigidbody2D
+        playerRigidBody.velocity = currentVelocity;
+
         animator.SetFloat("xVelocity", Mathf.Abs(playerRigidBody.velocity.x));
         animator.SetFloat("yVelocity", playerRigidBody.velocity.y);
 
@@ -182,13 +180,6 @@ public class PlayerScript : MonoBehaviour
 
 
 
-
-    //private void Jump()
-    //{
-    //    stickRigidBody.velocity = new Vector2(stickRigidBody.velocity.x, jumpForce);
-    //    jumpCount++; 
-    //}
-
     void OnCollisionEnter2D(Collision2D collision)      // Checks if player is on the stage
     {
         if (collision.gameObject == stage)
@@ -197,17 +188,6 @@ public class PlayerScript : MonoBehaviour
             jumpCount = 0;
         }
     }
-
-    // void OnTriggerEnter2D(Collision2D collision)      // Checks if player is on the stage
-    // {
-    //     if (collision.gameObject == stage)
-    //     {
-    //         isOnStage = true;
-    //         jumpCount = 0;
-    //         animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
-
-    //     }
-    // }
 
     void OnCollisionExit2D(Collision2D collision)       // Sets on stage to false when player leaves the stage
     {
