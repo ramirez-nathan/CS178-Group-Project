@@ -69,7 +69,7 @@ public class PlayerScript : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();  // Get and store the SpriteRenderer component attached to this GameObject.
         defaultSprite = spriteRenderer.sprite;            // Store the initial sprite from the SpriteRenderer as the default sprite.
-        gameObject.name = "stickManFighter";              // Rename the GameObject to "stickManFighter" for better identification in the hierarchy.
+        //gameObject.name = "stickManFighter";              // Rename the GameObject to "stickManFighter" for better identification in the hierarchy.
         animator = GetComponent<Animator>();              // Initializing the animator
         // playerRigidBody = GetComponent<Rigidbody2D>();
     }
