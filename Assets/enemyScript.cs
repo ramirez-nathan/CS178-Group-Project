@@ -5,10 +5,10 @@ using UnityEngine;
 public class enemyScript : MonoBehaviour
 {
     // Components and References
-    public Rigidbody2D enemyRigidBody;   // Reference to the player's Rigidbody2D for physics and movement.
-    public GameObject stage;             // Reference to the stage GameObject (for ground checks).
+    public Rigidbody2D enemyRigidBody;     // Reference to the player's Rigidbody2D for physics and movement.
+    public GameObject player;              // Reference to the player object
     private SpriteRenderer spriteRenderer; // SpriteRenderer for changing player sprites.
-    public AudioSource deathSound;       // A sound that gets played when the character gets destroyed
+    public AudioSource deathSound;         // A sound that gets played when the character gets destroyed
 
     // Sprites
     public Sprite attack;                // Sprite for the attack action.
