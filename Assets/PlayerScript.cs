@@ -149,19 +149,6 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void ProcessInputs()
-    {
-        // getaxisraw 
-        float moveX = Input.GetAxis("Horizontal") * moveSpeedX;
-        //float moveY = 0f * moveSpeedY;
-
-        // moveDirection = new Vector2 (moveX, playerRigidBody.velocity.y);
-    }
-
-    // void Move()
-    // {
-    //     playerRigidBody.velocity = new Vector2(moveDirection.x, moveDirection.y);
-    // }
 
     // Coroutine to handle the attack animation and revert to idle
     private IEnumerator PerformAttack()
