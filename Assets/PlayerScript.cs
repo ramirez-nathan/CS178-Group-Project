@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
     // Sprites
     public Sprite attack;                // Sprite for the attack action.
     private Sprite defaultSprite;        // Stores the default sprite to revert after an attack.
+    public bool isFacingRight = true;    // Tracks whether the player's sprite is facing right
+    public Animator animator;            // Controls all the animations of the player.
 
     // Jumping/Movement Mechanics
     private bool isOnStage = true;       // Tracks if the player is on the stage (grounded).
@@ -68,6 +70,8 @@ public class PlayerScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();  // Get and store the SpriteRenderer component attached to this GameObject.
         defaultSprite = spriteRenderer.sprite;            // Store the initial sprite from the SpriteRenderer as the default sprite.
         gameObject.name = "stickManFighter";              // Rename the GameObject to "stickManFighter" for better identification in the hierarchy.
+        animator = GetComponent<Animator>();              // Initializing the animator
+        // playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
 
@@ -80,6 +84,13 @@ public class PlayerScript : MonoBehaviour
 
         currentVelocity.x = move.ReadValue<Vector2>().x * moveSpeedX;
 
+        if (currentVelocity.x > 0 || currentVelocity.x < 0)
+        {
+         Debug.Log("Trying to Move");   
+        }
+
+        FlipSprite();
+
         // Jumping
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump") /*jump.triggered*/ ) 
         {
@@ -88,6 +99,8 @@ public class PlayerScript : MonoBehaviour
             {
                 currentVelocity.y = jumpForce; // Apply upward velocity for first jump
                 jumpCount++;
+            
+                animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
             }
         }
         // When jump key is released, set vert speed to 0 (Jump Cutting)
@@ -112,11 +125,25 @@ public class PlayerScript : MonoBehaviour
     // Fixed Update is called a set amount of times - Do physics here
     private void FixedUpdate()
     {
+        animator.SetFloat("xVelocity", Mathf.Abs(playerRigidBody.velocity.x));
+        animator.SetFloat("yVelocity", playerRigidBody.velocity.y);
+
         // Checks to see if player is out of bounds and destroys player if true
         if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
         {
             Debug.Log("You have been destroyed");
             Destroy(gameObject);
+        }
+    }
+
+    void FlipSprite() 
+    {
+        if(isFacingRight && playerRigidBody.velocity.x < 0f || !isFacingRight && playerRigidBody.velocity.x > 0f) 
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 ls = transform.localScale;
+            ls.x *= -1f;
+            transform.localScale = ls;
         }
     }
 
@@ -126,13 +153,13 @@ public class PlayerScript : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal") * moveSpeedX;
         //float moveY = 0f * moveSpeedY;
 
-        moveDirection = new Vector2 (moveX, playerRigidBody.velocity.y);
+        // moveDirection = new Vector2 (moveX, playerRigidBody.velocity.y);
     }
 
-    void Move()
-    {
-        playerRigidBody.velocity = new Vector2(moveDirection.x, moveDirection.y);
-    }
+    // void Move()
+    // {
+    //     playerRigidBody.velocity = new Vector2(moveDirection.x, moveDirection.y);
+    // }
 
     // Coroutine to handle the attack animation and revert to idle
     private IEnumerator PerformAttack()
@@ -157,6 +184,17 @@ public class PlayerScript : MonoBehaviour
             jumpCount = 0;
         }
     }
+
+    // void OnTriggerEnter2D(Collision2D collision)      // Checks if player is on the stage
+    // {
+    //     if (collision.gameObject == stage)
+    //     {
+    //         isOnStage = true;
+    //         jumpCount = 0;
+    //         animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
+
+    //     }
+    // }
 
     void OnCollisionExit2D(Collision2D collision)       // Sets on stage to false when player leaves the stage
     {
