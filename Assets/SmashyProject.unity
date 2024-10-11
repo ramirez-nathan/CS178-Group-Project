@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 392763471}
   - component: {fileID: 392763470}
   m_Layer: 0
-  m_Name: stickManEnemy
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 1228725979}
   - component: {fileID: 1228725981}
   m_Layer: 0
-  m_Name: stickMan
+  m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
