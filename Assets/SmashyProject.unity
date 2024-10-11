@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 392763473}
   - component: {fileID: 392763472}
   - component: {fileID: 392763471}
-  - component: {fileID: 392763470}
+  - component: {fileID: 392763475}
   m_Layer: 0
   m_Name: stickManEnemy
   m_TagString: Untagged
@@ -142,26 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &392763470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392763469}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 495a955a7a240b94c84279f01e6a418e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stickRigidBody: {fileID: 392763472}
-  stage: {fileID: 0}
-  deathSound: {fileID: 0}
-  attack: {fileID: 0}
-  jumpForce: 12
-  health: 100
-  attackDuration: 0.5
-  attackDamage: 0
 --- !u!61 &392763471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -301,6 +281,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &392763475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392763469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9dacdfe5affbe41896cd573f2abcf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &578187499
 GameObject:
   m_ObjectHideFlags: 0
