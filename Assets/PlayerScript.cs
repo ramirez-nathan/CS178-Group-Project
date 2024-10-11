@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     private const int maxJumps = 2;      // Maximum number of allowed jumps (double jump).
     public float jumpForce = 12f;        // Jump force applied to the player when jumping.
 
-    public float moveSpeedX = 0.5f; // X Movement Speed of Player
+    public float moveSpeedX = 10f; // X Movement Speed of Player
     public float moveSpeedY = 1f; // Y Movement Speed of Player
     private Vector2 moveDirection; // Direction of Player
 
@@ -82,11 +82,12 @@ public class PlayerScript : MonoBehaviour
         // Store the current velocity to avoid overwriting it
         Vector2 currentVelocity = playerRigidBody.velocity;
 
-        currentVelocity.x = move.ReadValue<Vector2>().x * moveSpeedX;
+        currentVelocity.x = move.ReadValue<Vector2>().x * 10f; 
 
         if (currentVelocity.x > 0 || currentVelocity.x < 0)
         {
-         Debug.Log("Trying to Move");   
+            Debug.Log(move.ReadValue<Vector2>().x * 0.2f);
+            Debug.Log("Trying to Move");   
         }
 
         FlipSprite();
