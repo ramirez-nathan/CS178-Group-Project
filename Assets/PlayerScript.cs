@@ -117,6 +117,8 @@ public class PlayerScript : MonoBehaviour
         }
 
 
+        animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
+
         // Apply the velocity back to the Rigidbody2D
         playerRigidBody.velocity = currentVelocity;
 
