@@ -87,8 +87,8 @@ public class PlayerScript : MonoBehaviour
 
         if (currentVelocity.x > 0 || currentVelocity.x < 0)
         {
-            Debug.Log(move.ReadValue<Vector2>().x * 0.2f);
-            Debug.Log("Trying to Move");   
+            //Debug.Log(move.ReadValue<Vector2>().x * 0.2f);
+            Debug.Log("Moving");   
         }
 
         FlipSprite();
