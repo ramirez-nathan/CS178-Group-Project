@@ -24,6 +24,7 @@ public class enemyScript : MonoBehaviour
     public int health = 100;             // Player's health points.
     public float attackDuration = 0.3f;  // Duration the attack sprite stays visible before reverting.
     public float attackDamage = 0;       // Amount of damage done by an attack
+    public float speed = 0.3f;
 
     // Out of bounds range, x = +- 11, y = -7
     private float outOfBoundsXLeft = -11f;
@@ -39,6 +40,9 @@ public class enemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Movement for chasing the player
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
         // Checks to see if the enemy is out of bounds and destroys enemy if true
         if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
         {
