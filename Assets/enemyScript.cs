@@ -40,8 +40,17 @@ public class enemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Movement for chasing the player
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        // Check if the player exists
+        if (player != null)
+        {
+            // Movement for chasing the player
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+        else
+        {
+            // Debug message for when player is dead
+            Debug.Log("Player has been destroyed, stopping chase.");
+        }
 
         // Checks to see if the enemy is out of bounds and destroys enemy if true
         if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
