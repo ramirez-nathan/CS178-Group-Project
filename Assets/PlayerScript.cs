@@ -116,7 +116,7 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(PerformAttack());
         }
 
-
+        animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
     }
 
     // Fixed Update is called a set amount of times - Do physics here
