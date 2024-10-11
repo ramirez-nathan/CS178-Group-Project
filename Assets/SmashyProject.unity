@@ -290,9 +290,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 392763469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d9dacdfe5affbe41896cd573f2abcf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 66fdc876c33f89e479181597e2fcba4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyRigidBody: {fileID: 392763472}
+  player: {fileID: 1228725975}
+  deathSound: {fileID: 4422278638818716002, guid: aa0a40e1a67b19f4dad91c60de75e594, type: 3}
+  attack: {fileID: 21300000, guid: a3a5dc45236dacc42a32fa7e7110ba7b, type: 3}
+  jumpForce: 12
+  health: 100
+  attackDuration: 0.3
+  attackDamage: 0
 --- !u!1 &578187499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1228725977
 SpriteRenderer:
   m_ObjectHideFlags: 0
