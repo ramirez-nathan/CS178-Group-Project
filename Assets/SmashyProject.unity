@@ -142,29 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &392763470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392763469}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 495a955a7a240b94c84279f01e6a418e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRigidBody: {fileID: 0}
-  stage: {fileID: 0}
-  attack: {fileID: 0}
-  isFacingRight: 1
-  animator: {fileID: 0}
-  jumpForce: 12
-  moveSpeedX: 20
-  moveSpeedY: 1
-  health: 100
-  attackDuration: 0.5
-  attackDamage: 0
 --- !u!61 &392763471
 BoxCollider2D:
   m_ObjectHideFlags: 0

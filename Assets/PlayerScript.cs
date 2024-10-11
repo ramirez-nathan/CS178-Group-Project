@@ -134,7 +134,7 @@ public class PlayerScript : MonoBehaviour
         if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
         {
             Debug.Log("You have been destroyed");
-            Destroy(gameObject);
+            PlayDeathSound();
         }
     }
 
