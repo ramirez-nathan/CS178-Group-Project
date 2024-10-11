@@ -94,7 +94,7 @@ public class PlayerScript : MonoBehaviour
         FlipSprite();
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump") /*jump.triggered*/ ) 
+        if (/*Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump")*/ jump.WasPressedThisFrame() ) 
         {
             // First jump only allowed if on the stage, Allow a second jump while airborne (double jump)
             if (jumpCount == 0 || jumpCount == 1)
@@ -106,7 +106,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
         // When jump key is released, set vert speed to 0 (Jump Cutting)
-        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump"))  /*jump.WasPressedThisFrame()*/ && currentVelocity.y > 0)
+        if (/*(Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("Jump")*/ jump.WasReleasedThisFrame() && currentVelocity.y > 0)
         {
             currentVelocity.y = currentVelocity.y * 0.20f;
         }
