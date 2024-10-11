@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class stickManScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     // Components and References
     public Rigidbody2D stickRigidBody;   // Reference to the player's Rigidbody2D for physics and movement.
