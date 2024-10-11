@@ -42,7 +42,7 @@ public class enemyScript : MonoBehaviour
         // Checks to see if the enemy is out of bounds and destroys enemy if true
         if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
         {
-            Debug.Log("You have been destroyed");
+            Debug.Log("Enemy has been destroyed");
             PlayDeathSound();
         }
     }
