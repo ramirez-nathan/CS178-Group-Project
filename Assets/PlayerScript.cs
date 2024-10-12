@@ -199,6 +199,7 @@ public class PlayerScript : MonoBehaviour
 
             // Set hp equal to 0
             health = 0;
+            currentHealth = 0;
 
             // Immediately destroy the GameObject
             Destroy(gameObject);
