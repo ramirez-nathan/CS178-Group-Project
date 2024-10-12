@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     private SpriteRenderer spriteRenderer; // SpriteRenderer for changing player sprites.
     public AudioSource deathSound;       // A sound that gets played when the character gets destroyed
     public Collider2D attackCollider;    // The collider representing the player's attack hitbox
+    public enemyScript enemyScwipt;      // Reference to enemy code
 
     // Sprites
     public Sprite attack;                // Sprite for the attack action.
@@ -177,8 +178,10 @@ public class PlayerScript : MonoBehaviour
         // Change to the attack sprite
         spriteRenderer.sprite = attack;
 
+        attackCollider.enabled = true;
         // Wait for the duration of the attack
         yield return new WaitForSeconds(attackDuration);
+        attackCollider.enabled = false;
 
         Debug.Log("Swing");
 
@@ -242,6 +245,20 @@ public class PlayerScript : MonoBehaviour
         if (rb != null)
         {
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if the collider belongs to an enemy
+        EnemyScript enemy = collision.GetComponent<EnemyScript>();
+
+        if (enemy != null)
+        {
+            // Calculate knockback direction (from player to enemy)
+            Vector2 knockbackDirection = (enemy.transform.position - transform.position).normalized;
+
+            // Apply damage and knockback to the enemy
+            enemy.TakeDamage(attackDamage, knockbackDirection, knockbackForce);
         }
     }
 
