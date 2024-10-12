@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour
     public PlayerInputActions playerControls;
     private InputAction move;
     private InputAction jump;
+    private InputAction neutralGAttack;
 
 
     // Combat and Health
@@ -51,6 +52,9 @@ public class PlayerScript : MonoBehaviour
 
     private void OnEnable()
     {
+        neutralGAttack = playerControls.Player.NeutralGAttack;
+        neutralGAttack.Enable();
+
         move = playerControls.Player.Move;
         move.Enable();
 
@@ -60,6 +64,8 @@ public class PlayerScript : MonoBehaviour
 
     private void OnDisable()
     {
+        neutralGAttack.Disable();
+
         move.Disable();
 
         jump.Disable();
@@ -91,10 +97,10 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("Moving");   
         }
 
-        FlipSprite();
+        UpdateSpriteDirection();
 
         // Jumping
-        if ( jump.WasPressedThisFrame() ) 
+        if (jump.WasPressedThisFrame()) 
         {
             // First jump only allowed if on the stage, Allow a second jump while airborne (double jump)
             if (jumpCount == 0 || jumpCount == 1)
@@ -111,10 +117,12 @@ public class PlayerScript : MonoBehaviour
             currentVelocity.y = currentVelocity.y * 0.20f;
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            StartCoroutine(PerformAttack());
-        }
+        CheckForAttack();
+
+        //if (neutralGAttack.WasPressedThisFrame())
+        //{
+        //    StartCoroutine(PerformAttack());
+        //}
 
         animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
     }
@@ -136,7 +144,16 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void FlipSprite() 
+    void CheckForAttack()
+    {
+        if (neutralGAttack.WasPressedThisFrame())
+        {
+            Debug.Log("neutralGAttack performed");
+            StartCoroutine(PerformAttack(1));
+        }
+    }
+
+    void UpdateSpriteDirection() 
     {
         if(isFacingRight && playerRigidBody.velocity.x < 0f || !isFacingRight && playerRigidBody.velocity.x > 0f) 
         {
@@ -149,8 +166,9 @@ public class PlayerScript : MonoBehaviour
 
 
     // Coroutine to handle the attack animation and revert to idle
-    private IEnumerator PerformAttack()
-    {
+    private IEnumerator PerformAttack(int attackNum)
+    { 
+        // animator.SetInteger("attackType", attackNum);
         // Change to the attack sprite
         spriteRenderer.sprite = attack;
 
