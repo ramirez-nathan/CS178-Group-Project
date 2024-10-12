@@ -299,6 +299,7 @@ MonoBehaviour:
   attack: {fileID: 21300000, guid: a3a5dc45236dacc42a32fa7e7110ba7b, type: 3}
   jumpForce: 12
   health: 100
+  currentHealth: 0
   attackDuration: 0.3
   attackDamage: 0
   speed: 2
@@ -1347,9 +1348,10 @@ MonoBehaviour:
   moveSpeedX: 20
   moveSpeedY: 1
   health: 100
+  currentHealth: 0
   attackDuration: 0.3
   attackDamage: 10
-  knockBack: 0
+  knockBack: 1
 --- !u!61 &1228725980
 BoxCollider2D:
   m_ObjectHideFlags: 0

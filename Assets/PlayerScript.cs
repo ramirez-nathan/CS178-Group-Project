@@ -41,7 +41,7 @@ public class PlayerScript : MonoBehaviour
     public float currentHealth = 0;      // The current Players health points
     public float attackDuration = 0.3f;  // Duration (in seconds) the attack sprite stays visible before reverting.
     public int attackDamage = 10;       // Amount of damage done by an attack
-    public float knockBack = 0;          // How far an attack will knock back someone
+    public float knockBack = 1f;          // How far an attack will knock back someone
 
     // Out of bounds range, x = +- 11, y = -7
     private float outOfBoundsXLeft = -11f;
