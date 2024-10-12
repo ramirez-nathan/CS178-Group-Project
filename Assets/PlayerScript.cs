@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject stage;             // Reference to the stage GameObject (for ground checks).
     private SpriteRenderer spriteRenderer; // SpriteRenderer for changing player sprites.
     public AudioSource deathSound;       // A sound that gets played when the character gets destroyed
+    public Collider2D attackCollider;    // The collider representing the player's attack hitbox
 
     // Sprites
     public Sprite attack;                // Sprite for the attack action.
@@ -82,6 +83,7 @@ public class PlayerScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();  // Get and store the SpriteRenderer component attached to this GameObject.
         defaultSprite = spriteRenderer.sprite;            // Store the initial sprite from the SpriteRenderer as the default sprite.
         animator = GetComponent<Animator>();              // Initializing the animator
+        attackCollider.enabled = false;
     }
 
 
