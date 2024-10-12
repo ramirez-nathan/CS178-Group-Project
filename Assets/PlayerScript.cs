@@ -118,7 +118,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
         // When jump key is released, set vert speed to 20% (Jump Cutting)
-        if (jump.WasReleasedThisFrame() /*== InputActionPhase.Canceled*/ && currentVelocity.y > 0)
+        if (jump.WasReleasedThisFrame() && currentVelocity.y > 0)
         {
             currentVelocity.y = currentVelocity.y * 0.20f;
         }
