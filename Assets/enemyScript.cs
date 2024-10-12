@@ -22,6 +22,7 @@ public class enemyScript : MonoBehaviour
 
     // Combat and Health
     public int health = 100;             // Player's health points.
+    private float currentHealth = 0;
     public float attackDuration = 0.3f;  // Duration the attack sprite stays visible before reverting.
     public float attackDamage = 0;       // Amount of damage done by an attack
     public float speed = 0.3f;           // How fast the enemy moves
@@ -35,7 +36,7 @@ public class enemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = health;
     }
 
     // Update is called once per frame
@@ -73,6 +74,22 @@ public class enemyScript : MonoBehaviour
 
             // Immediately destroy the GameObject
             Destroy(gameObject);
+        }
+    }
+
+    // Attacks
+    public void TakeDamage(int damage, Vector2 knockbackDirection, float knockbackForce)
+    {
+        // Reduce health
+        currentHealth -= damage;
+
+        // Apply knockback
+        Knockback(knockbackDirection, knockbackForce);
+
+        // Check if health is less than or equal to 0
+        if (currentHealth <= 0)
+        {
+            PlayDeathSound();  // Trigger death
         }
     }
 }
