@@ -37,6 +37,7 @@ public class PlayerScript : MonoBehaviour
     public int health = 100;             // Player's health points.
     public float attackDuration = 0.3f;  // Duration (in seconds) the attack sprite stays visible before reverting.
     public float attackDamage = 0;       // Amount of damage done by an attack
+    public float knockBack = 0;          // How far an attack will knock back someone
 
     // Out of bounds range, x = +- 11, y = -7
     private float outOfBoundsXLeft = -11f;
@@ -229,4 +230,21 @@ public class PlayerScript : MonoBehaviour
             isOnStage = false;
         }
     }
+
+    // Attacks
+    public void TakeDamage(int damage, Vector2 knockbackDirection, float knockbackForce)
+    {
+
+    }
+
+    private void Knockback(Vector2 direction, float force)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
+        }
+    }
+
+
 }

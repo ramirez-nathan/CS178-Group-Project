@@ -301,7 +301,7 @@ MonoBehaviour:
   health: 100
   attackDuration: 0.3
   attackDamage: 0
-  speed: 1
+  speed: 2
 --- !u!1 &578187499
 GameObject:
   m_ObjectHideFlags: 0

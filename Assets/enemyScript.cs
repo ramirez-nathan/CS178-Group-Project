@@ -24,7 +24,8 @@ public class enemyScript : MonoBehaviour
     public int health = 100;             // Player's health points.
     public float attackDuration = 0.3f;  // Duration the attack sprite stays visible before reverting.
     public float attackDamage = 0;       // Amount of damage done by an attack
-    public float speed = 0.3f;
+    public float speed = 0.3f;           // How fast the enemy moves
+    public float knockBack = 0;          // How far an attack will knock back someone
 
     // Out of bounds range, x = +- 11, y = -7
     private float outOfBoundsXLeft = -11f;
