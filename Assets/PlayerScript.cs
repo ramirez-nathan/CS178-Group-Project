@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour
     public int health = 100;             // Player's health points.
     private float currentHealth = 0;
     public float attackDuration = 0.3f;  // Duration (in seconds) the attack sprite stays visible before reverting.
-    public float attackDamage = 0;       // Amount of damage done by an attack
+    public int attackDamage = 10;       // Amount of damage done by an attack
     public float knockBack = 0;          // How far an attack will knock back someone
 
     // Out of bounds range, x = +- 11, y = -7
@@ -178,6 +178,7 @@ public class PlayerScript : MonoBehaviour
         // Change to the attack sprite
         spriteRenderer.sprite = attack;
 
+        Debug.Log("attack enabled");
         attackCollider.enabled = true;
         // Wait for the duration of the attack
         yield return new WaitForSeconds(attackDuration);
@@ -223,7 +224,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    // Attacks
+    //Attacks
     public void TakeDamage(int damage, Vector2 knockbackDirection, float knockbackForce)
     {
         // Reduce health
@@ -247,20 +248,27 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the collider belongs to an enemy
-        EnemyScript enemy = collision.GetComponent<EnemyScript>();
+        // Check if the object we collided with has an EnemyScript component
+        enemyScwipt = collision.GetComponent<enemyScript>();
 
-        if (enemy != null)
+        if (enemyScwipt != null)
         {
-            // Calculate knockback direction (from player to enemy)
-            Vector2 knockbackDirection = (enemy.transform.position - transform.position).normalized;
+            // Calculate the direction for knockback (from the player to the enemy)
+            Vector2 knockbackDirection = (enemyScwipt.transform.position - transform.position).normalized;
 
             // Apply damage and knockback to the enemy
-            enemy.TakeDamage(attackDamage, knockbackDirection, knockbackForce);
+            enemyScwipt.TakeDamage(attackDamage, knockbackDirection, knockBack);
+        }
+        else
+        {
+            // Optional: Debug to see what other object we might have collided with
+            Debug.Log("Collision with non-enemy object: " + collision.name);
         }
     }
+
 
 
 }
