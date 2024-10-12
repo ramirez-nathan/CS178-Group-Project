@@ -17,6 +17,6 @@ public class enemyHealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Player 2 HP: " + enemy.health.ToString();
+        healthText.text = "Player 2 HP: " + enemy.currentHealth.ToString();
     }
 }

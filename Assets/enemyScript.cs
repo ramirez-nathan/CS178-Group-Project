@@ -21,8 +21,8 @@ public class enemyScript : MonoBehaviour
     public float jumpForce = 12f;        // Jump force applied to the player when jumping.
 
     // Combat and Health
-    public int health = 100;             // Player's health points.
-    private float currentHealth = 0;
+    public int health = 100;             // Enemy's health points.
+    public float currentHealth = 0;      // Enemy's current health points
     public float attackDuration = 0.3f;  // Duration the attack sprite stays visible before reverting.
     public float attackDamage = 0;       // Amount of damage done by an attack
     public float speed = 0.3f;           // How fast the enemy moves
