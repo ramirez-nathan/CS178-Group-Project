@@ -35,6 +35,7 @@ public class PlayerScript : MonoBehaviour
 
     // Combat and Health
     public int health = 100;             // Player's health points.
+    private float currentHealth = 0;
     public float attackDuration = 0.3f;  // Duration (in seconds) the attack sprite stays visible before reverting.
     public float attackDamage = 0;       // Amount of damage done by an attack
     public float knockBack = 0;          // How far an attack will knock back someone
@@ -69,6 +70,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = health;
         spriteRenderer = GetComponent<SpriteRenderer>();  // Get and store the SpriteRenderer component attached to this GameObject.
         defaultSprite = spriteRenderer.sprite;            // Store the initial sprite from the SpriteRenderer as the default sprite.
         //gameObject.name = "stickManFighter";              // Rename the GameObject to "stickManFighter" for better identification in the hierarchy.
@@ -234,7 +236,17 @@ public class PlayerScript : MonoBehaviour
     // Attacks
     public void TakeDamage(int damage, Vector2 knockbackDirection, float knockbackForce)
     {
+        // Reduce health
+        currentHealth -= damage;
 
+        // Apply knockback
+        Knockback(knockbackDirection, knockbackForce);
+
+        // Check if health is less than or equal to 0
+        if (currentHealth <= 0)
+        {
+            PlayDeathSound();  // Trigger death
+        }
     }
 
     private void Knockback(Vector2 direction, float force)
