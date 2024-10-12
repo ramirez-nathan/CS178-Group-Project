@@ -32,6 +32,7 @@ public class PlayerScript : MonoBehaviour
     private InputAction move;
     private InputAction jump;
     private InputAction neutralGAttack;
+    private InputAction dashGAttack;
 
 
     // Combat and Health
@@ -52,6 +53,9 @@ public class PlayerScript : MonoBehaviour
 
     private void OnEnable()
     {
+        dashGAttack = playerControls.Player.DashGAttack;
+        dashGAttack.Enable();
+
         neutralGAttack = playerControls.Player.NeutralGAttack;
         neutralGAttack.Enable();
 
@@ -64,6 +68,8 @@ public class PlayerScript : MonoBehaviour
 
     private void OnDisable()
     {
+        dashGAttack.Disable();
+
         neutralGAttack.Disable();
 
         move.Disable();
@@ -91,16 +97,16 @@ public class PlayerScript : MonoBehaviour
 
         currentVelocity.x = move.ReadValue<Vector2>().x * 10f; 
 
-        if (currentVelocity.x > 0 || currentVelocity.x < 0)
-        {
-            //Debug.Log(move.ReadValue<Vector2>().x * 0.2f);
-            Debug.Log("Moving");   
-        }
+        //if (currentVelocity.x > 0 || currentVelocity.x < 0)
+        //{
+        //    //Debug.Log(move.ReadValue<Vector2>().x * 0.2f);
+        //    //Debug.Log("Moving");   
+        //}
 
         UpdateSpriteDirection();
 
         // Jumping
-        if (jump.WasPressedThisFrame()) 
+        if (jump.WasPressedThisFrame() /*&& jump.phase == InputActionPhase.Started*/) 
         {
             // First jump only allowed if on the stage, Allow a second jump while airborne (double jump)
             if (jumpCount == 0 || jumpCount == 1)
@@ -111,18 +117,14 @@ public class PlayerScript : MonoBehaviour
                 animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
             }
         }
-        // When jump key is released, set vert speed to 0 (Jump Cutting)
-        if (jump.WasReleasedThisFrame() && currentVelocity.y > 0)
+        // When jump key is released, set vert speed to 20% (Jump Cutting)
+        if (jump.WasReleasedThisFrame() /*== InputActionPhase.Canceled*/ && currentVelocity.y > 0)
         {
             currentVelocity.y = currentVelocity.y * 0.20f;
         }
 
         CheckForAttack();
 
-        //if (neutralGAttack.WasPressedThisFrame())
-        //{
-        //    StartCoroutine(PerformAttack());
-        //}
 
         animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
     }
@@ -146,9 +148,13 @@ public class PlayerScript : MonoBehaviour
 
     void CheckForAttack()
     {
-        if (neutralGAttack.WasPressedThisFrame())
+        if (dashGAttack.triggered)
         {
-            Debug.Log("neutralGAttack performed");
+            Debug.Log("DashGAttack performed"); 
+        }
+        else if (neutralGAttack.triggered && !move.WasPressedThisFrame())
+        {
+            Debug.Log("NeutralGAttack performed");
             StartCoroutine(PerformAttack(1));
         }
     }
@@ -175,7 +181,7 @@ public class PlayerScript : MonoBehaviour
         // Wait for the duration of the attack
         yield return new WaitForSeconds(attackDuration);
 
-        Debug.Log("Swing");
+        //Debug.Log("Swing");
 
         // Revert to the idle sprite
         spriteRenderer.sprite = defaultSprite;
