@@ -187,7 +187,8 @@ public class PlayerScript : MonoBehaviour
         spriteRenderer.sprite = defaultSprite;
     }
 
-    void PlayDeathSound()
+    // DESTROYS PLAYER OBJECT & PLAYS DEATH SOUND
+    void KillPlayer()
     {
         if (deathSound != null && deathSound.clip != null)
         {
