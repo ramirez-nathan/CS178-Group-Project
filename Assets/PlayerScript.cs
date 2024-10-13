@@ -155,10 +155,11 @@ public class PlayerScript : MonoBehaviour
         else if (neutralGAttack.triggered && !move.WasPressedThisFrame())
         {
             Debug.Log("NeutralGAttack performed");
-            StartCoroutine(PerformAttack(1));
+            StartCoroutine(PerformAttack(0));
         }
     }
 
+    // ADJUST WHICH WAY SPRITE IS FACING
     void UpdateSpriteDirection() 
     {
         if(isFacingRight && playerRigidBody.velocity.x < 0f || !isFacingRight && playerRigidBody.velocity.x > 0f) 
@@ -211,6 +212,7 @@ public class PlayerScript : MonoBehaviour
         {
             isOnStage = true;
             jumpCount = 0;
+            Debug.Log("Collision Happened, jumpCount is " + jumpCount);
         }
     }
 
