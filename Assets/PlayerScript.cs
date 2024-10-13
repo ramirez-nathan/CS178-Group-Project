@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
 
     public float moveSpeedX = 10f; // X Movement Speed of Player
     public float moveSpeedY = 1f; // Y Movement Speed of Player
-    private Vector2 currentVelocity; // Direction of Player
+    private Vector2 currentVelocity; // Current velocity of Player
 
     // Input System 
     public PlayerInputActions playerControls;
@@ -91,47 +91,22 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame - Process inputs here
     void Update()
     {
-        //ProcessInputs();
-        // Store the current velocity to avoid overwriting it
-        currentVelocity = playerRigidBody.velocity;
+        currentVelocity = playerRigidBody.velocity; // Store the current velocity to avoid choppy movement
 
         currentVelocity.x = move.ReadValue<Vector2>().x * 10f; 
 
-        //if (currentVelocity.x > 0 || currentVelocity.x < 0)
-        //{
-        //    //Debug.Log(move.ReadValue<Vector2>().x * 0.2f);
-        //    //Debug.Log("Moving");   
-        //}
-
         UpdateSpriteDirection();
 
-        // Jumping
-        if (jump.WasPressedThisFrame() /*&& jump.phase == InputActionPhase.Started*/) 
-        {
-            // First jump only allowed if on the stage, Allow a second jump while airborne (double jump)
-            if (jumpCount == 0 || jumpCount == 1)
-            {
-                currentVelocity.y = jumpForce; // Apply upward velocity for first jump
-                jumpCount++;
-            
-                animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
-            }
-        }
-        // When jump key is released, set vert speed to 20% (Jump Cutting)
-        if (jump.WasReleasedThisFrame() && currentVelocity.y > 0)
-        {
-            currentVelocity.y = currentVelocity.y * 0.20f;
-        }
+        HandleJump();
 
         CheckForAttack();
 
-
-        animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
+        animator.SetBool("isJumping", !isOnStage); // animator checks if player is jumping still
     }
 
     // Fixed Update is called a set amount of times - Do physics here
     private void FixedUpdate()
-    {
+    { 
         // Apply the velocity back to the Rigidbody2D
         playerRigidBody.velocity = currentVelocity;
 
