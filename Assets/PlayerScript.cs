@@ -142,10 +142,35 @@ public class PlayerScript : MonoBehaviour
         if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
         {
             Debug.Log("You have been destroyed");
-            PlayDeathSound();
+            KillPlayer();
         }
     }
 
+    void HandleJump()
+    {
+        // Jumping
+        if (jump.WasPressedThisFrame())
+        {
+            // checks the jump count to see if player has jumps left (double jump)
+            if (jumpCount == 0 || jumpCount == 1)
+            {
+                currentVelocity.y = jumpForce; // Apply upward velocity for first jump
+                jumpCount++;
+                animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
+            }
+        }
+        // When jump key is released, set vert speed to 20% (Jump Cutting)
+        if (jump.WasReleasedThisFrame() && currentVelocity.y > 0)
+        {
+            currentVelocity.y = currentVelocity.y * 0.20f;
+        }
+        else
+        {
+            Debug.Log(jumpCount);
+        }
+    }
+
+    // HANDLE ATTACKS 
     void CheckForAttack()
     {
         if (dashGAttack.triggered)
