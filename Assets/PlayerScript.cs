@@ -18,7 +18,9 @@ public class PlayerScript : MonoBehaviour
     public Animator animator;            // Controls all the animations of the player.
 
     // Jumping/Movement Mechanics
-    private bool isOnStage = true;       // Tracks if the player is on the stage (grounded).
+    private bool isOnFloor = true;       // Tracks if the player is on the stage (grounded).
+    protected bool jumpPressed = false;
+    protected bool jumpReleased = false;
     private int jumpCount = 0;           // Tracks the number of jumps performed.
     private const int maxJumps = 2;      // Maximum number of allowed jumps (double jump).
     public float jumpForce = 12f;        // Jump force applied to the player when jumping.
@@ -97,11 +99,11 @@ public class PlayerScript : MonoBehaviour
 
         UpdateSpriteDirection();
 
-        HandleJump();
+        ProcessInputs();
 
         CheckForAttack();
 
-        animator.SetBool("isJumping", !isOnStage); // animator checks if player is jumping still
+        animator.SetBool("isJumping", !isOnFloor); // animator checks if player is jumping still
     }
 
     // Fixed Update is called a set amount of times - Do physics here
@@ -121,7 +123,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void HandleJump()
+    void ProcessInputs()
     {
         // Jumping
         if (jump.WasPressedThisFrame())
@@ -131,7 +133,7 @@ public class PlayerScript : MonoBehaviour
             {
                 currentVelocity.y = jumpForce; // Apply upward velocity for first jump
                 jumpCount++;
-                animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
+                animator.SetBool("isJumping", !isOnFloor); // Lets the animator know that the player is now jumping
             }
         }
         // When jump key is released, set vert speed to 20% (Jump Cutting)
