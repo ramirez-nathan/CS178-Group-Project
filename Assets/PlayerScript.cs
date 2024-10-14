@@ -179,7 +179,7 @@ public class PlayerScript : MonoBehaviour
         else if (neutralGAttack.triggered && !move.WasPressedThisFrame())
         {
             Debug.Log("NeutralGAttack performed");
-            StartCoroutine(PerformAttack(0));
+            StartCoroutine(PerformAttack(1));
         }
     }
 
@@ -199,7 +199,7 @@ public class PlayerScript : MonoBehaviour
     // Coroutine to handle the attack animation and revert to idle
     private IEnumerator PerformAttack(int attackNum)
     { 
-        // animator.SetInteger("attackType", attackNum);
+        animator.SetInteger("attackType", attackNum);
 
         // Change to the attack sprite
         spriteRenderer.sprite = attack;
@@ -210,7 +210,9 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
         attackCollider.enabled = false;
 
-        //Debug.Log("Swing");
+        Debug.Log("Swing");
+
+        animator.SetInteger("attackType", 0);
 
         // Revert to the idle sprite
         spriteRenderer.sprite = defaultSprite;
