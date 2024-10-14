@@ -1351,7 +1351,7 @@ MonoBehaviour:
   currentHealth: 0
   attackDuration: 0.3
   attackDamage: 10
-  knockBack: 20
+  knockBack: 4
 --- !u!61 &1228725980
 BoxCollider2D:
   m_ObjectHideFlags: 0
