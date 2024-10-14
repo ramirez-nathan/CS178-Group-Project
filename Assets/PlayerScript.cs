@@ -20,20 +20,23 @@ public class PlayerScript : MonoBehaviour
     public Animator animator;            // Controls all the animations of the player.
 
     // Jumping/Movement Mechanics
-    private bool isOnStage = true;       // Tracks if the player is on the stage (grounded).
+    private bool isOnFloor = true;       // Tracks if the player is on the stage (grounded).
+    protected bool jumpPressed = false;
+    protected bool jumpReleased = false;
     private int jumpCount = 0;           // Tracks the number of jumps performed.
     private const int maxJumps = 2;      // Maximum number of allowed jumps (double jump).
     public float jumpForce = 12f;        // Jump force applied to the player when jumping.
 
     public float moveSpeedX = 10f; // X Movement Speed of Player
     public float moveSpeedY = 1f; // Y Movement Speed of Player
-    private Vector2 currentVelocity; // Direction of Player
+    private Vector2 currentVelocity; // Current velocity of Player
 
     // Input System 
     public PlayerInputActions playerControls;
     private InputAction move;
     private InputAction jump;
     private InputAction neutralGAttack;
+    private InputAction dashGAttack;
 
 
     // Combat and Health
@@ -56,6 +59,9 @@ public class PlayerScript : MonoBehaviour
 
     private void OnEnable()
     {
+        dashGAttack = playerControls.Player.DashGAttack;
+        dashGAttack.Enable();
+
         neutralGAttack = playerControls.Player.NeutralGAttack;
         neutralGAttack.Enable();
 
@@ -68,6 +74,8 @@ public class PlayerScript : MonoBehaviour
 
     private void OnDisable()
     {
+        dashGAttack.Disable();
+
         neutralGAttack.Disable();
 
         move.Disable();
@@ -91,74 +99,91 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame - Process inputs here
     void Update()
     {
-        //ProcessInputs();
-        // Store the current velocity to avoid overwriting it
-        currentVelocity = playerRigidBody.velocity;
+        currentVelocity = playerRigidBody.velocity; // Store the current velocity to avoid choppy movement
 
         currentVelocity.x = move.ReadValue<Vector2>().x * 10f; 
 
-        if (currentVelocity.x > 0 || currentVelocity.x < 0)
-        {
-            //Debug.Log(move.ReadValue<Vector2>().x * 0.2f);
-            //Debug.Log("Trying to Move");   
-        }
-
         UpdateSpriteDirection();
 
-        // Jumping
-        if (jump.WasPressedThisFrame()) 
-        {
-            // First jump only allowed if on the stage, Allow a second jump while airborne (double jump)
-            if (jumpCount == 0 || jumpCount == 1)
-            {
-                currentVelocity.y = jumpForce; // Apply upward velocity for first jump
-                jumpCount++;
-            
-                animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
-            }
-        }
-        // When jump key is released, set vert speed to 0 (Jump Cutting)
-        if (jump.WasReleasedThisFrame() && currentVelocity.y > 0)
-        {
-            currentVelocity.y = currentVelocity.y * 0.20f;
-        }
+        ProcessInputs();
 
         CheckForAttack();
 
-        //if (neutralGAttack.WasPressedThisFrame())
-        //{
-        //    StartCoroutine(PerformAttack());
-        //}
-
-        animator.SetBool("isJumping", !isOnStage); // Lets the animator know that the player is now jumping
+        animator.SetBool("isJumping", !isOnFloor); // animator checks if player is jumping still
     }
 
     // Fixed Update is called a set amount of times - Do physics here
     private void FixedUpdate()
     {
+        HandleJump();
         // Apply the velocity back to the Rigidbody2D
-        playerRigidBody.velocity = currentVelocity;
-
         animator.SetFloat("xVelocity", Mathf.Abs(playerRigidBody.velocity.x));
         animator.SetFloat("yVelocity", playerRigidBody.velocity.y);
 
+        playerRigidBody.velocity = currentVelocity;
         // Checks to see if player is out of bounds and destroys player if true
         if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
         {
             Debug.Log("You have been destroyed");
-            PlayDeathSound();
+            KillPlayer();
+        }
+        
+    }
+
+    void ProcessInputs()
+    {
+        // Jumping
+        if (jump.WasPressedThisFrame())
+        {
+            // checks the jump count to see if player has jumps left (double jump)
+            if (jumpCount == 0 || jumpCount == 1)
+            {
+                jumpPressed = true;
+                animator.SetBool("isJumping", !isOnFloor); // Lets the animator know that the player is now jumping
+            }
+        }
+        // When jump key is released, set vert speed to 20% (Jump Cutting)
+        if (jump.WasReleasedThisFrame() && currentVelocity.y > 0)
+        {
+            jumpReleased = true;
+        }
+        else
+        {
+            Debug.Log(jumpCount);
+        }
+    }
+    
+    void HandleJump()
+    {
+        if (jumpPressed)
+        {           
+            jumpCount++;
+            currentVelocity.y = jumpForce; // Apply upward velocity for first jump
+            jumpPressed = false; 
+        }
+        if (jumpReleased && currentVelocity.y > 0)
+        {
+            currentVelocity.y *= 0.20f;
+            jumpReleased = false;
         }
     }
 
+
+    // HANDLE ATTACKS 
     void CheckForAttack()
     {
-        if (neutralGAttack.WasPressedThisFrame())
+        if (dashGAttack.triggered)
         {
-            Debug.Log("neutralGAttack performed");
-            StartCoroutine(PerformAttack(1));
+            Debug.Log("DashGAttack performed"); 
+        }
+        else if (neutralGAttack.triggered && !move.WasPressedThisFrame())
+        {
+            Debug.Log("NeutralGAttack performed");
+            StartCoroutine(PerformAttack(0));
         }
     }
 
+    // ADJUST WHICH WAY SPRITE IS FACING
     void UpdateSpriteDirection() 
     {
         if(isFacingRight && playerRigidBody.velocity.x < 0f || !isFacingRight && playerRigidBody.velocity.x > 0f) 
@@ -175,6 +200,7 @@ public class PlayerScript : MonoBehaviour
     private IEnumerator PerformAttack(int attackNum)
     { 
         // animator.SetInteger("attackType", attackNum);
+
         // Change to the attack sprite
         spriteRenderer.sprite = attack;
 
@@ -184,13 +210,14 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(attackDuration);
         attackCollider.enabled = false;
 
-        Debug.Log("Swing");
+        //Debug.Log("Swing");
 
         // Revert to the idle sprite
         spriteRenderer.sprite = defaultSprite;
     }
 
-    void PlayDeathSound()
+    // DESTROYS PLAYER OBJECT & PLAYS DEATH SOUND
+    void KillPlayer()
     {
         if (deathSound != null && deathSound.clip != null)
         {
@@ -207,21 +234,21 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-
     void OnCollisionEnter2D(Collision2D collision)      // Checks if player is on the stage
     {
-        if (collision.gameObject == stage)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("TopStage")) // checking top stage layer 
         {
-            isOnStage = true;
+            isOnFloor = true;
             jumpCount = 0;
+            //Debug.Log("Collision Happened, jumpCount is " + jumpCount);
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)       // Sets on stage to false when player leaves the stage
     {
-        if (collision.gameObject == stage)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("TopStage")) // checking top stage layer 
         {
-            isOnStage = false;
+           isOnFloor = false;
         }
     }
 

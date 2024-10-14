@@ -1465,7 +1465,7 @@ GameObject:
   - component: {fileID: 1345803991}
   - component: {fileID: 1345803993}
   - component: {fileID: 1345803994}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: topStage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
