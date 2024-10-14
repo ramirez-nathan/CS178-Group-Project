@@ -210,19 +210,19 @@ public class PlayerScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)      // Checks if player is on the stage
     {
-        if (collision.gameObject == stage)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("TopStage")) // checking top stage layer 
         {
-            isOnStage = true;
+            isOnFloor = true;
             jumpCount = 0;
-            Debug.Log("Collision Happened, jumpCount is " + jumpCount);
+            //Debug.Log("Collision Happened, jumpCount is " + jumpCount);
         }
     }
 
     void OnCollisionExit2D(Collision2D collision)       // Sets on stage to false when player leaves the stage
     {
-        if (collision.gameObject == stage)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("TopStage")) // checking top stage layer 
         {
-            isOnStage = false;
+           isOnFloor = false;
         }
     }
 }
