@@ -264,7 +264,7 @@ public class PlayerScript : MonoBehaviour
         // Check if health is less than or equal to 0
         if (currentHealth <= 0)
         {
-            PlayDeathSound();  // Trigger death
+            KillPlayer();  // Trigger death
         }
     }
 
