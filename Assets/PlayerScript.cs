@@ -108,19 +108,20 @@ public class PlayerScript : MonoBehaviour
 
     // Fixed Update is called a set amount of times - Do physics here
     private void FixedUpdate()
-    { 
+    {
+        HandleJump();
         // Apply the velocity back to the Rigidbody2D
-        playerRigidBody.velocity = currentVelocity;
-
         animator.SetFloat("xVelocity", Mathf.Abs(playerRigidBody.velocity.x));
         animator.SetFloat("yVelocity", playerRigidBody.velocity.y);
 
+        playerRigidBody.velocity = currentVelocity;
         // Checks to see if player is out of bounds and destroys player if true
         if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
         {
             Debug.Log("You have been destroyed");
             KillPlayer();
         }
+        
     }
 
     void ProcessInputs()
@@ -131,21 +132,36 @@ public class PlayerScript : MonoBehaviour
             // checks the jump count to see if player has jumps left (double jump)
             if (jumpCount == 0 || jumpCount == 1)
             {
-                currentVelocity.y = jumpForce; // Apply upward velocity for first jump
-                jumpCount++;
+                jumpPressed = true;
                 animator.SetBool("isJumping", !isOnFloor); // Lets the animator know that the player is now jumping
             }
         }
         // When jump key is released, set vert speed to 20% (Jump Cutting)
         if (jump.WasReleasedThisFrame() && currentVelocity.y > 0)
         {
-            currentVelocity.y = currentVelocity.y * 0.20f;
+            jumpReleased = true;
         }
         else
         {
             Debug.Log(jumpCount);
         }
     }
+    
+    void HandleJump()
+    {
+        if (jumpPressed)
+        {           
+            jumpCount++;
+            currentVelocity.y = jumpForce; // Apply upward velocity for first jump
+            jumpPressed = false; 
+        }
+        if (jumpReleased && currentVelocity.y > 0)
+        {
+            currentVelocity.y *= 0.20f;
+            jumpReleased = false;
+        }
+    }
+
 
     // HANDLE ATTACKS 
     void CheckForAttack()
@@ -178,6 +194,7 @@ public class PlayerScript : MonoBehaviour
     private IEnumerator PerformAttack(int attackNum)
     { 
         // animator.SetInteger("attackType", attackNum);
+
         // Change to the attack sprite
         spriteRenderer.sprite = attack;
 
@@ -205,7 +222,6 @@ public class PlayerScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 
 
     void OnCollisionEnter2D(Collision2D collision)      // Checks if player is on the stage
