@@ -189,10 +189,10 @@ public class PlayerScript : MonoBehaviour
     {
         if(isFacingRight && playerRigidBody.velocity.x < 0f || !isFacingRight && playerRigidBody.velocity.x > 0f) 
         {
-            isFacingRight = !isFacingRight;
-            Vector3 ls = transform.localScale;
-            ls.x *= -1f;
-            transform.localScale = ls;
+            isFacingRight = !isFacingRight; 
+            Vector3 ls = transform.localScale; 
+            ls.x *= -1f; 
+            transform.localScale = ls; 
         }
     }
 

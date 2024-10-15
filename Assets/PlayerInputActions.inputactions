@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "DashGAttack",
+                    "type": "Button",
+                    "id": "e500d2ff-404e-4538-8f25-53635286e63a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
@@ -63,7 +72,7 @@
                     "name": "Previous",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -82,15 +91,6 @@
                     "type": "Button",
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
                     "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DashGAttack",
-                    "type": "Button",
-                    "id": "e500d2ff-404e-4538-8f25-53635286e63a",
-                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -494,18 +494,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "a5493d1c-1efb-49e3-94d4-88725cc65f43",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DashGAttack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "One Modifier",
+                    "name": "Joystick: Dash",
                     "id": "1ddb2634-b4c3-476d-8681-4c60117b2068",
                     "path": "OneModifier",
                     "interactions": "",
@@ -536,6 +525,83 @@
                     "action": "DashGAttack",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "KB Left: Dash",
+                    "id": "cdae20a3-a728-4bbe-a440-e4a7ba000a47",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashGAttack",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "cd82f53a-27ae-4065-a7bf-bd9c2ac0f8bd",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "DashGAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "5f9b6b71-a90e-40f8-8716-47d903c53f31",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashGAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "KB Right: Dash",
+                    "id": "0641d4fc-098e-4c0b-9e94-bc82e2f1ccc8",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashGAttack",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "c3175bae-b7a7-4fb4-9358-34d8d69c614e",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DashGAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "44367587-ae7c-4745-b2a5-fdbf8791084b",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashGAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a5493d1c-1efb-49e3-94d4-88725cc65f43",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DashGAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
