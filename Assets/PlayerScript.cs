@@ -174,7 +174,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (dashGAttack.triggered)
         {
-            Debug.Log("DashGAttack performed"); 
+            Debug.Log("DashGAttack performed");
+            StartCoroutine(PerformAttack(1));
         }
         else if (neutralGAttack.triggered && !move.WasPressedThisFrame())
         {
