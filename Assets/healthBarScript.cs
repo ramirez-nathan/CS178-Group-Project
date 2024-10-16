@@ -26,8 +26,7 @@ public class healthBarScript : MonoBehaviour
 
             // Update the scale of the health bar based on the health percentage
             Vector3 scale = transform.localScale;
-            scale.x = 0.5f;
-            //scale.x = healthPercentage; // Adjust only the x scale to change the width of the health bar
+            scale.x = healthPercentage; // Adjust only the x scale to change the width of the health bar
             transform.localScale = scale;
         }
         else
