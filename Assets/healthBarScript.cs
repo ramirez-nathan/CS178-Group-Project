@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class healthBarScript : MonoBehaviour
 {
-    public PlayerScript player;       // reference to our player
+    public PlayerMain player;       // reference to our player
 
     // Start is called before the first frame update
     void Start()

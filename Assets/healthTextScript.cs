@@ -6,7 +6,7 @@ using UnityEngine;
 public class healthTextScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI healthText;
-    public PlayerScript stickMan;
+    public PlayerMain stickMan;
 
     // Start is called before the first frame update
     void Start()
