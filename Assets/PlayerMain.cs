@@ -279,7 +279,7 @@ public class PlayerMain : MonoBehaviour
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         }
     }
-
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the object we collided with has an EnemyScript component
