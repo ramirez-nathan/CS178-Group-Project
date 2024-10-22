@@ -385,6 +385,7 @@ MonoBehaviour:
   enemyRigidBody: {fileID: 392763472}
   player: {fileID: 1228725975}
   deathSound: {fileID: 4422278638818716002, guid: aa0a40e1a67b19f4dad91c60de75e594, type: 3}
+  gameOverScween: {fileID: 999917834}
   attack: {fileID: 21300000, guid: a3a5dc45236dacc42a32fa7e7110ba7b, type: 3}
   jumpForce: 12
   health: 100
