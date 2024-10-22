@@ -9,6 +9,7 @@ public class enemyScript : MonoBehaviour
     public GameObject player;              // Reference to the player object
     private SpriteRenderer spriteRenderer; // SpriteRenderer for changing player sprites.
     public AudioSource deathSound;         // A sound that gets played when the character gets destroyed
+    public gameOverScreen gameOverScween; // The game over screen
 
     // Sprites
     public Sprite attack;                // Sprite for the attack action.
@@ -79,6 +80,7 @@ public class enemyScript : MonoBehaviour
 
             // Immediately destroy the GameObject
             Destroy(gameObject);
+            gameOverScween.ShowGameOver();
         }
     }
 
