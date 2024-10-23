@@ -42,7 +42,7 @@ public class PlayerScript : MonoBehaviour
     // Combat and Health
     public int health = 100;             // Player's health points.
     public float currentHealth = 0;      // The current Players health points
-    public float attackDuration = 0.3f;  // Duration (in seconds) the attack sprite stays visible before reverting.
+    public float attackDuration = 0.75f;  // Duration (in seconds) the attack sprite stays visible before reverting.
     public int attackDamage = 10;       // Amount of damage done by an attack
     public float knockBack = 1f;          // How far an attack will knock back someone
 
@@ -208,7 +208,7 @@ public class PlayerScript : MonoBehaviour
         Debug.Log("attack enabled");
         attackCollider.enabled = true;
         // Wait for the duration of the attack
-        yield return new WaitForSeconds(attackDuration);
+        yield return new WaitForSeconds(0.6f);
         attackCollider.enabled = false;
 
         Debug.Log("Swing");
