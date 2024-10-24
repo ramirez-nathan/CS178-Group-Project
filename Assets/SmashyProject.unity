@@ -2227,6 +2227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55244ac05d33e3f42951ba11d2d6a69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winnerText: {fileID: 1483382981}
+  player: {fileID: 1228725979}
+  enemy: {fileID: 392763475}
 --- !u!1 &1532755291
 GameObject:
   m_ObjectHideFlags: 0
