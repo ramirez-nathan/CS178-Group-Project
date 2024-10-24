@@ -19,11 +19,12 @@ public class gameOverTextScript : MonoBehaviour
     {
         if (player == null)
         {
-            winnerText.text = "Player 2 Wins!";
+            winnerText.text = "Game!\nPlayer 2 Wins!";
         }
+
         else if (enemy == null)
         {
-            winnerText.text = "Player 1 Wins!";
+            winnerText.text = "Game!\nPlayer 1 Wins!";
         }
     }
 }
