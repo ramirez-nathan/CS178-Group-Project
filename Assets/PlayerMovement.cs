@@ -29,10 +29,20 @@ public class PlayerMovement : MonoBehaviour
     public float xDirection;
     //public bool jumpStarted = false;
     public bool shortHop = false;
+    
+    private void Awake()
+    {
+        playerRigidBody = GetComponent<Rigidbody2D>();
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.fixedDeltaTime = 1.0f / 60.0f;  // Set FixedUpdate to run at 60 FPS
+        playerJumpState = PlayerJumpState.JumpReleased;
+        playerState = PlayerState.Idle;
+        playerRigidBody.velocity = Vector2.zero;
+    }
     }
 
     // Update is called once per frame
