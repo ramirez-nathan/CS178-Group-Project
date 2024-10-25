@@ -43,11 +43,12 @@ public class PlayerMovement : MonoBehaviour
         playerState = PlayerState.Idle;
         playerRigidBody.velocity = Vector2.zero;
     }
-    }
-
-    // Update is called once per frame
-    void Update()
+    public int GetPlayerIndex()
     {
-        
+        return playerIndex;
+    }
+    // Update is called once per frame
+    void Update() // make this a virtual void
+    {
     }
 }
