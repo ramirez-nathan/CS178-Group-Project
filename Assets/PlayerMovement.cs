@@ -72,6 +72,20 @@ public class PlayerMovement : MonoBehaviour
             PerformJump(shortHop);
         }
     }
+    public void PerformJump(bool isShortHop)
+    {
+        if (isShortHop)
+        {
+            // Perform a short hop
+            SetJumpVelocity(8f); // Lower jump force for short hop
+        }
+        else
+        {
+            // Perform a long hop
+            SetJumpVelocity(12f); // Higher jump force for regular hop
+        }
+    }
+    // FixedUpdate is called on a fixed time interval for physics updates
     private void FixedUpdate() // make this a virtual void 
     {
         if (playerJumpState == PlayerJumpState.JumpHeld) jumpFrameCounter++; // track frames that jump button is held for
