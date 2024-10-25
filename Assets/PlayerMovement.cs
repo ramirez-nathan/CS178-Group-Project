@@ -50,5 +50,26 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update() // make this a virtual void
     {
+
+    }
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            // When jump button is pressed
+            playerJumpState = PlayerJumpState.JumpHeld; // TODO - CHANGE BACK ON COLL ENTER ON STAGE
+            jumpFrameCounter = 0; // Reset frame counter
+        }
+        else if (context.canceled && jumpCount <= 1)
+        {
+            // When jump button is released
+            if (playerJumpState != PlayerJumpState.JumpReleased) playerJumpState = PlayerJumpState.JumpReleased;
+
+            jumpCount++;
+            // Determine if it's a short hop or a regular hop based on frame count
+            shortHop = jumpFrameCounter <= 4;
+
+            PerformJump(shortHop);
+        }
     }
 }
