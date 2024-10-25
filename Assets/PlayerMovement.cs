@@ -19,6 +19,16 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D playerRigidBody;
     public GameObject stage;
     public PlayerState playerState;
+
+    //private Vector2 inputVector = Vector2.zero;
+
+    // Jump Logic
+    public PlayerJumpState playerJumpState;
+    public int jumpCount = 0;
+    public int jumpFrameCounter = 0;
+    public float xDirection;
+    //public bool jumpStarted = false;
+    public bool shortHop = false;
     // Start is called before the first frame update
     void Start()
     {
