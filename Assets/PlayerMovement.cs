@@ -86,6 +86,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     // FixedUpdate is called on a fixed time interval for physics updates
+    public void SetJumpVelocity(float jumpForce)
+    {
+        currentVelocity.y = jumpForce; // Apply the upward force
+        playerRigidBody.velocity = currentVelocity;
+    }
+
     private void FixedUpdate() // make this a virtual void 
     {
         if (playerJumpState == PlayerJumpState.JumpHeld) jumpFrameCounter++; // track frames that jump button is held for
