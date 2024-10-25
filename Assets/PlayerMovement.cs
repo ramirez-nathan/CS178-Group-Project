@@ -96,4 +96,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerJumpState == PlayerJumpState.JumpHeld) jumpFrameCounter++; // track frames that jump button is held for
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("TopStage"))
+        {
+            playerState = PlayerState.Grounded;
+            jumpCount = 0;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("TopStage"))
+        {
+            playerState = PlayerState.Airborne;
+        }
+    }
+
+
 }
