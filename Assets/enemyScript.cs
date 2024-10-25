@@ -51,12 +51,12 @@ public class enemyScript : MonoBehaviour
         if (player != null)
         {
             // Movement for chasing the player
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed);
         }
         else
         {
             // Debug message for when player is dead
-            Debug.Log("Player has been destroyed, stopping chase.");
+            //Debug.Log("Player has been destroyed, stopping chase.");
         }
         // Checks to see if the enemy is out of bounds and destroys enemy if true
         if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
