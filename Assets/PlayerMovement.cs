@@ -72,4 +72,8 @@ public class PlayerMovement : MonoBehaviour
             PerformJump(shortHop);
         }
     }
+    private void FixedUpdate() // make this a virtual void 
+    {
+        if (playerJumpState == PlayerJumpState.JumpHeld) jumpFrameCounter++; // track frames that jump button is held for
+    }
 }
