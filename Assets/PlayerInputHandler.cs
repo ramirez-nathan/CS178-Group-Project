@@ -41,6 +41,29 @@ public class PlayerInputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    private void OnEnable()
+    {
+        // Subscribe to input actions
+        playerControls.move = playerInput.actions["Move"];
+        playerControls.jump = playerInput.actions["Jump"];
+        playerControls.neutralGAttack = playerInput.actions["NeutralGAttack"];
+        playerControls.dashGAttack = playerInput.actions["DashGAttack"];
         
+        playerControls.jump.started += playerMovement.Jump;  // Track the jump press
+        playerControls.jump.canceled += playerMovement.Jump; // Track the jump release
+
+        //playerControls.neutralGAttack.started += NeutralGAttack;
+        //playerControls.dashGAttack.started += DashGAttack;
+
     }
+    // Unsubscribe all methods to avoid memory leaks
+    private void OnDisable()
+    {
+        playerControls.jump.started -= playerMovement.Jump;
+        playerControls.jump.canceled -= playerMovement.Jump;
+
+        //playerControls.neutralGAttack.started -= NeutralGAttack;
+        //playerControls.dashGAttack.started -= DashGAttack;
+    }
+   
 }
