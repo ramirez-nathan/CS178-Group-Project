@@ -41,6 +41,11 @@ public class PlayerInputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerMovement.currentVelocity = playerMovement.playerRigidBody.velocity;
+        playerMovement.currentVelocity.x = playerControls.move.ReadValue<Vector2>().x * playerMovement.moveSpeed;
+        playerMovement.playerRigidBody.velocity = playerMovement.currentVelocity;
+    }
+
     private void OnEnable()
     {
         // Subscribe to input actions
