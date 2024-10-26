@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerJumpState playerJumpState;
     public int jumpCount = 0;
     public int jumpFrameCounter = 0;
-    public float xDirection;
+    public bool didJump = false;
     //public bool jumpStarted = false;
     public bool shortHop = false;
     
@@ -54,26 +54,32 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            // When jump button is pressed
-            playerJumpState = PlayerJumpState.JumpHeld; // TODO - CHANGE BACK ON COLL ENTER ON STAGE
-            jumpFrameCounter = 0; // Reset frame counter
-        }
-        else if (context.canceled && jumpCount <= 1)
+        if (context.canceled)
         {
             // When jump button is released
             if (playerJumpState != PlayerJumpState.JumpReleased) playerJumpState = PlayerJumpState.JumpReleased;
-
-            jumpCount++;
-            // Determine if it's a short hop or a regular hop based on frame count
-            shortHop = jumpFrameCounter <= 4;
-
-            PerformJump(shortHop);
+        }
+        if (jumpCount <= 1)
+        {
+            if (context.started) // jump pressed 
+            {
+                didJump = false;
+                // When jump button is pressed
+                playerJumpState = PlayerJumpState.JumpHeld; // TODO - CHANGE BACK ON COLL ENTER ON STAGE
+                jumpFrameCounter = 0; // Reset frame counter
+            }
+            else if (context.canceled && !didJump) // jump released and havent jumped yet
+            {
+                shortHop = jumpFrameCounter < 5;
+                // Determine if it's a short hop or a regular hop based on frame count
+                PerformJump(shortHop);
+            }
         }
     }
     public void PerformJump(bool isShortHop)
     {
+        jumpCount++;
+        didJump = true;
         if (isShortHop)
         {
             // Perform a short hop
@@ -95,6 +101,15 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() // make this a virtual void 
     {
         if (playerJumpState == PlayerJumpState.JumpHeld) jumpFrameCounter++; // track frames that jump button is held for
+        if (jumpFrameCounter == 5 && playerState == PlayerState.Grounded) // bro took too long, long hop it is 
+        {
+            shortHop = false;
+            PerformJump(shortHop);
+        }
+        if (jumpCount == 1 && !didJump && jumpFrameCounter == 2)
+        {
+            PerformJump(false); // if already in air then do a long hop
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -102,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("TopStage"))
         {
             playerState = PlayerState.Grounded;
+            jumpFrameCounter = 0; // Reset frame counter
             jumpCount = 0;
         }
     }

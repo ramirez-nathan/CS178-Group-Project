@@ -2059,7 +2059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winnerText: {fileID: 1483382981}
-  player: {fileID: 1228725979}
+  player: {fileID: 0}
   enemy: {fileID: 392763475}
 --- !u!1 &1532755291
 GameObject:
@@ -2185,6 +2185,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d36b46b8e918b74489806e3fd9ec018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRigidBody: {fileID: 0}
+  stage: {fileID: 0}
+  deathSound: {fileID: 0}
+  attackCollider: {fileID: 0}
+  enemyScwipt: {fileID: 0}
+  gameOverScween: {fileID: 0}
+  attack: {fileID: 0}
+  isFacingRight: 1
+  animator: {fileID: 0}
+  jumpForce: 12
+  moveSpeedX: 10
+  moveSpeedY: 1
+  health: 100
+  currentHealth: 0
+  attackDuration: 0.3
+  attackDamage: 10
+  knockBack: 1
 --- !u!50 &1667594070
 Rigidbody2D:
   serializedVersion: 4
@@ -2448,11 +2465,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672198331}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d36b46b8e918b74489806e3fd9ec018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRigidBody: {fileID: 0}
+  stage: {fileID: 0}
+  deathSound: {fileID: 0}
+  attackCollider: {fileID: 0}
+  enemyScwipt: {fileID: 0}
+  gameOverScween: {fileID: 0}
+  attack: {fileID: 0}
+  isFacingRight: 1
+  animator: {fileID: 0}
+  jumpForce: 12
+  moveSpeedX: 10
+  moveSpeedY: 1
+  health: 100
+  currentHealth: 0
+  attackDuration: 0.3
+  attackDamage: 10
+  knockBack: 1
 --- !u!70 &1672198340
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
