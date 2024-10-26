@@ -235,7 +235,7 @@ public class PlayerScript : MonoBehaviour
             Vector2 knockbackDirection = (enemyScwipt.transform.position - transform.position).normalized;
 
             // Apply damage and knockback to the enemy
-            enemyScwipt.TakeDamage(attackDamage, knockbackDirection, knockBack);
+            // enemyScwipt.TakeDamage(attackDamage, knockbackDirection, knockBack);
         }
         else
         {
