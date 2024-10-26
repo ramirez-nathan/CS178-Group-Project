@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class enemyHealthScript : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI healthText;
-    public enemyScript enemy;
+    //[SerializeField] TextMeshProUGUI healthText;
+    //public enemyScript enemy;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    //// Start is called before the first frame update
+    //void Start()
+    //{
         
-    }
+    //}
 
-    // Update is called once per frame
-    void Update()
-    {
-        healthText.text = "Player 2 HP: " + enemy.currentHealth.ToString();
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+    //    healthText.text = "Player 2 HP: " + enemy.currentHealth.ToString();
+    //}
 }
