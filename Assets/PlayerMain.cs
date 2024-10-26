@@ -11,7 +11,7 @@ public class PlayerMain : MonoBehaviour
     private SpriteRenderer spriteRenderer; // SpriteRenderer for changing player sprites.
     public AudioSource deathSound;       // A sound that gets played when the character gets destroyed
     public Collider2D attackCollider;    // The collider representing the player's attack hitbox
-    public enemyScript enemyScwipt;      // Reference to enemy code
+    //public enemyScript enemyScwipt;      // Reference to enemy code
 
     // Sprites
     public Sprite attack;                // Sprite for the attack action.
@@ -280,7 +280,7 @@ public class PlayerMain : MonoBehaviour
         }
     }
    
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the object we collided with has an EnemyScript component
         enemyScwipt = collision.GetComponent<enemyScript>();
@@ -298,7 +298,7 @@ public class PlayerMain : MonoBehaviour
             // Optional: Debug to see what other object we might have collided with
             Debug.Log("Collision with non-enemy object: " + collision.name);
         }
-    }
+    }*/
 
 
 
