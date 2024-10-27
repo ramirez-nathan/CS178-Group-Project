@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerMain : MonoBehaviour
 {
     // Components and References
     public Rigidbody2D playerRigidBody;   // Reference to the player's Rigidbody2D for physics and movement.
@@ -11,8 +11,7 @@ public class PlayerScript : MonoBehaviour
     private SpriteRenderer spriteRenderer; // SpriteRenderer for changing player sprites.
     public AudioSource deathSound;       // A sound that gets played when the character gets destroyed
     public Collider2D attackCollider;    // The collider representing the player's attack hitbox
-    public enemyScript enemyScwipt;      // Reference to enemy code
-    public gameOverScreen gameOverScween; // The game over screen
+    //public enemyScript enemyScwipt;      // Reference to enemy code
 
     // Sprites
     public Sprite attack;                // Sprite for the attack action.
@@ -87,13 +86,71 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = health;
+        QualitySettings.vSyncCount = 0; // Set vSyncCount to 0 so that using .targetFrameRate is enabled.
+        Application.targetFrameRate = 60;
+        spriteRenderer = GetComponent<SpriteRenderer>();  // Get and store the SpriteRenderer component attached to this GameObject.
+        defaultSprite = spriteRenderer.sprite;            // Store the initial sprite from the SpriteRenderer as the default sprite.
+        animator = GetComponent<Animator>();              // Initializing the animator
+        attackCollider.enabled = false;
+    }
+
+
+    // Update is called once per frame - Process inputs here
+    void Update()
+    {
+        currentVelocity = playerRigidBody.velocity; // Store the current velocity to avoid choppy movement
+
+        currentVelocity.x = move.ReadValue<Vector2>().x * 10f; 
+
+        UpdateSpriteDirection();
+
+        ProcessInputs();
+
+        CheckForAttack();
+
+        animator.SetBool("isJumping", !isOnFloor); // animator checks if player is jumping still
+    }
+
+    // Fixed Update is called a set amount of times - Do physics here
+    private void FixedUpdate()
+    {
+        HandleJump();
+        // Apply the velocity back to the Rigidbody2D
+        animator.SetFloat("xVelocity", Mathf.Abs(playerRigidBody.velocity.x));
+        animator.SetFloat("yVelocity", playerRigidBody.velocity.y);
+
+        playerRigidBody.velocity = currentVelocity;
+        // Checks to see if player is out of bounds and destroys player if true
+        if (transform.position.x > outOfBoundsXRight || transform.position.x < outOfBoundsXLeft || transform.position.y < outOfBoundsY)
+        {
+            Debug.Log("You have been destroyed");
+            KillPlayer();
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void ProcessInputs()
     {
-        
+        // Jumping
+        if (jump.WasPressedThisFrame())
+        {
+            // checks the jump count to see if player has jumps left (double jump)
+            if (jumpCount == 0 || jumpCount == 1)
+            {
+                jumpPressed = true;
+                animator.SetBool("isJumping", !isOnFloor); // Lets the animator know that the player is now jumping
+            }
+        }
+        // When jump key is released, set vert speed to 20% (Jump Cutting)
+        if (jump.WasReleasedThisFrame() && currentVelocity.y > 0)
+        {
+            jumpReleased = true;
+        }
+        else
+        {
+            Debug.Log(jumpCount);
+        }
     }
     
     void HandleJump()
@@ -176,7 +233,6 @@ public class PlayerScript : MonoBehaviour
 
             // Immediately destroy the GameObject
             Destroy(gameObject);
-            gameOverScween.ShowGameOver();
         }
     }
 
@@ -223,8 +279,8 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+   
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the object we collided with has an EnemyScript component
         enemyScwipt = collision.GetComponent<enemyScript>();
@@ -235,14 +291,14 @@ public class PlayerScript : MonoBehaviour
             Vector2 knockbackDirection = (enemyScwipt.transform.position - transform.position).normalized;
 
             // Apply damage and knockback to the enemy
-            // enemyScwipt.TakeDamage(attackDamage, knockbackDirection, knockBack);
+            enemyScwipt.TakeDamage(attackDamage, knockbackDirection, knockBack);
         }
         else
         {
             // Optional: Debug to see what other object we might have collided with
             Debug.Log("Collision with non-enemy object: " + collision.name);
         }
-    }
+    }*/
 
 
 

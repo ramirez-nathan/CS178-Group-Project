@@ -2,10 +2,9 @@
 // using System.Collections.Generic;
 // using UnityEngine;
 
-// public class healthBarScript : MonoBehaviour
+// public class PlayerTwoHealthBar : MonoBehaviour
 // {
-//     public PlayerMain player;       // reference to our player
-
+//     public enemyScript enemy;       // reference to our enemy
 //     // Start is called before the first frame update
 //     void Start()
 //     {
@@ -16,10 +15,10 @@
 //     void Update()
 //     {
 //         // Check if the player reference is still valid and that maxHealth is not zero
-//         if (player != null && player.health > 0)
+//         if (enemy != null && enemy.health > 0)
 //         {
 //             // Calculate the health percentage (between 0 and 1)
-//             float healthPercentage = player.currentHealth / player.health;
+//             float healthPercentage = enemy.currentHealth / enemy.health;
 
 //             // Ensure healthPercentage is between 0 and 1
 //             healthPercentage = Mathf.Clamp(healthPercentage, 0, 1);
@@ -31,8 +30,8 @@
 //         }
 //         else
 //         {
-//             // Optionally disable or destroy the health bar when the player is destroyed
-//             gameObject.SetActive(false); // Disables the health bar when the player is null or maxHealth is 0
+//             // Optionally disable or destroy the health bar when the enemy is destroyed
+//             gameObject.SetActive(false); // Disables the health bar when the enemy is null or maxHealth is 0
 //         }
 //     }
 // }
