@@ -127,6 +127,7 @@ public class PlayerMain : MonoBehaviour
         {
             Debug.Log("You have been destroyed");
             KillPlayer();
+            gameOverScween.ShowGameOver();
         }
         
     }
