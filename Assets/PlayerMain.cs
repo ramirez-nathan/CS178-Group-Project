@@ -12,6 +12,7 @@ public class PlayerMain : MonoBehaviour
     public AudioSource deathSound;       // A sound that gets played when the character gets destroyed
     public Collider2D attackCollider;    // The collider representing the player's attack hitbox
     //public enemyScript enemyScwipt;      // Reference to enemy code
+    public gameOverScreen gameOverScween; // The game over screen
 
     // Sprites
     public Sprite attack;                // Sprite for the attack action.
