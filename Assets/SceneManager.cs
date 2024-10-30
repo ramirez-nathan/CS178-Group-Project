@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    public Button selectModeButton;
+    public Button startGameButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +24,17 @@ public class MenuManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");  // Replace "MainMenu" with the exact name of your main menu scene
+        SceneManager.LoadScene("MainMenu");  
     }
 
     public void LoadSelectModeMenu()
     {
-        SceneManager.LoadScene("SelectMode");  // Replace "SelectMode" with the exact name of your select mode scene
+            SceneManager.LoadScene("SelectMode");  
     }
 
     public void LoadGameplayScene()
     {
-        SceneManager.LoadScene("Gameplay");  // Replace "Gameplay" with the name of your gameplay scene
+        SceneManager.LoadScene("Game");  
     }
 
 
