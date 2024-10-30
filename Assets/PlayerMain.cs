@@ -59,10 +59,10 @@ public class PlayerMain : MonoBehaviour
 
     private void OnEnable()
     {
-        dashGAttack = playerControls.Player.DashGAttack;
+        dashGAttack = playerControls.Player.DashAttack;
         dashGAttack.Enable();
 
-        neutralGAttack = playerControls.Player.NeutralGAttack;
+        neutralGAttack = playerControls.Player.Jab;
         neutralGAttack.Enable();
 
         move = playerControls.Player.Move;

@@ -51,8 +51,8 @@ public class PlayerInputHandler : MonoBehaviour
         // Subscribe to input actions
         playerControls.move = playerInput.actions["Move"];
         playerControls.jump = playerInput.actions["Jump"];
-        playerControls.neutralGAttack = playerInput.actions["NeutralGAttack"];
-        playerControls.dashGAttack = playerInput.actions["DashGAttack"];
+        playerControls.neutralGAttack = playerInput.actions["Jab"];
+        playerControls.dashGAttack = playerInput.actions["DashAttack"];
         
         playerControls.jump.started += playerMovement.Jump;  // Track the jump press
         playerControls.jump.canceled += playerMovement.Jump; // Track the jump release
