@@ -32,6 +32,7 @@ public class Counter : MonoBehaviour
 
         // Clear the text after the countdown is complete
         counterText.text = "";
+        countDownOver = true;   // Set the countdown as complete
 
         Time.timeScale = 1f;
     }
