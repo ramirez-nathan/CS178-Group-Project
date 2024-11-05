@@ -11,7 +11,6 @@ public class Counter : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0f;
         StartCoroutine(StartCountdown());  // Start the countdown coroutine when the scene starts
     }
 
@@ -35,8 +34,6 @@ public class Counter : MonoBehaviour
 
         // Set countdown status to true
         countDownOver = true;
-
-        Time.timeScale = 1f;
     }
 
     // Public method to check if countdown is over
