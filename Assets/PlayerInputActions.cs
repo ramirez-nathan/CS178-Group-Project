@@ -64,24 +64,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""UpTilt"",
-                    ""type"": ""Button"",
-                    ""id"": ""c39355a4-711a-4a7d-b75d-4ce6ee7ff8d3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""DownTilt"",
-                    ""type"": ""Button"",
-                    ""id"": ""db6e2002-aa20-455d-a36c-8618afc93ad8"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
@@ -642,127 +624,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""DashAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Joystick: Up"",
-                    ""id"": ""ab662f9d-47a6-40b8-a97f-e6b839d1ca58"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpTilt"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""c5c88a15-4db5-4de8-bc66-3ffeb8d03929"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpTilt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""8371556a-a9a2-4bdc-96ce-e59d3474748d"",
-                    ""path"": ""<Joystick>/stick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpTilt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d2d7f84e-8ea1-4d03-be1f-a498532db878"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""UpTilt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""KB: Up"",
-                    ""id"": ""ed5bc2cb-439f-443d-95e3-81921c6cd97e"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpTilt"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""0cc7b2b2-dd12-4ab6-af56-312f39d26da0"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpTilt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""35c72631-0d44-46d1-b35e-5107df5fe03d"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpTilt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1816c991-e130-4644-bea3-882b4d72c204"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""DownTilt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Joystick"",
-                    ""id"": ""0d942091-ca72-4aaf-98c2-b7ba4132c3f0"",
-                    ""path"": ""OneModifier(overrideModifiersNeedToBePressedFirst=true)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""DownTilt"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""02928c5c-4921-47a8-a2b4-d7880dd7453b"",
-                    ""path"": ""<Joystick>/stick/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""DownTilt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""66edcbf9-6744-4fce-883b-e8ae27b20b1d"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""DownTilt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1380,8 +1241,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Jab = m_Player.FindAction("Jab", throwIfNotFound: true);
         m_Player_DashAttack = m_Player.FindAction("DashAttack", throwIfNotFound: true);
-        m_Player_UpTilt = m_Player.FindAction("UpTilt", throwIfNotFound: true);
-        m_Player_DownTilt = m_Player.FindAction("DownTilt", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
@@ -1475,8 +1334,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Jab;
     private readonly InputAction m_Player_DashAttack;
-    private readonly InputAction m_Player_UpTilt;
-    private readonly InputAction m_Player_DownTilt;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Previous;
@@ -1491,8 +1348,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Jab => m_Wrapper.m_Player_Jab;
         public InputAction @DashAttack => m_Wrapper.m_Player_DashAttack;
-        public InputAction @UpTilt => m_Wrapper.m_Player_UpTilt;
-        public InputAction @DownTilt => m_Wrapper.m_Player_DownTilt;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Previous => m_Wrapper.m_Player_Previous;
@@ -1520,12 +1375,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @DashAttack.started += instance.OnDashAttack;
             @DashAttack.performed += instance.OnDashAttack;
             @DashAttack.canceled += instance.OnDashAttack;
-            @UpTilt.started += instance.OnUpTilt;
-            @UpTilt.performed += instance.OnUpTilt;
-            @UpTilt.canceled += instance.OnUpTilt;
-            @DownTilt.started += instance.OnDownTilt;
-            @DownTilt.performed += instance.OnDownTilt;
-            @DownTilt.canceled += instance.OnDownTilt;
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
@@ -1560,12 +1409,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @DashAttack.started -= instance.OnDashAttack;
             @DashAttack.performed -= instance.OnDashAttack;
             @DashAttack.canceled -= instance.OnDashAttack;
-            @UpTilt.started -= instance.OnUpTilt;
-            @UpTilt.performed -= instance.OnUpTilt;
-            @UpTilt.canceled -= instance.OnUpTilt;
-            @DownTilt.started -= instance.OnDownTilt;
-            @DownTilt.performed -= instance.OnDownTilt;
-            @DownTilt.canceled -= instance.OnDownTilt;
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
@@ -1816,8 +1659,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnJab(InputAction.CallbackContext context);
         void OnDashAttack(InputAction.CallbackContext context);
-        void OnUpTilt(InputAction.CallbackContext context);
-        void OnDownTilt(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnPrevious(InputAction.CallbackContext context);
