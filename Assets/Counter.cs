@@ -11,29 +11,29 @@ public class Counter : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 0f;
         StartCoroutine(StartCountdown());  // Start the countdown coroutine when the scene starts
     }
 
     private IEnumerator StartCountdown()
     {
-        // Countdown values
+        // Countdown values, unaffected by Time.timeScale
         counterText.text = "3";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         counterText.text = "2";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         counterText.text = "1";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         counterText.text = "Start";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         // Clear the text after the countdown is complete
         counterText.text = "";
 
-        // Set countdown status to true
-        countDownOver = true;
+        Time.timeScale = 1f;
     }
 
     // Public method to check if countdown is over
