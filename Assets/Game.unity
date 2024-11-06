@@ -2452,7 +2452,6 @@ GameObject:
   - component: {fileID: 1672198339}
   - component: {fileID: 1672198340}
   - component: {fileID: 1672198341}
-  - component: {fileID: 1672198342}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -2645,34 +2644,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1672198342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672198331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 495a955a7a240b94c84279f01e6a418e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRigidBody: {fileID: 1672198333}
-  stage: {fileID: 1532755291}
-  deathSound: {fileID: 4422278638818716002, guid: aa0a40e1a67b19f4dad91c60de75e594, type: 3}
-  attackCollider: {fileID: 0}
-  gameOverScween: {fileID: 999917834}
-  attack: {fileID: 0}
-  isFacingRight: 1
-  animator: {fileID: 0}
-  jumpForce: 12
-  moveSpeedX: 10
-  moveSpeedY: 1
-  health: 100
-  currentHealth: 0
-  attackDuration: 0.3
-  attackDamage: 10
-  knockBack: 1
 --- !u!1 &1683673780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,7 +2792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 1683673782}
-  player: {fileID: 1672198342}
+  player: {fileID: 0}
 --- !u!1 &1710004190
 GameObject:
   m_ObjectHideFlags: 0

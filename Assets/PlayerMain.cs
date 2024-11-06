@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMain : MonoBehaviour
+/*public class PlayerMain : MonoBehaviour
 {
     // Components and References
     public Rigidbody2D playerRigidBody;   // Reference to the player's Rigidbody2D for physics and movement.
@@ -283,7 +283,7 @@ public class PlayerMain : MonoBehaviour
         }
     }
    
-    /*private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // Check if the object we collided with has an EnemyScript component
         enemyScwipt = collision.GetComponent<enemyScript>();
@@ -301,8 +301,8 @@ public class PlayerMain : MonoBehaviour
             // Optional: Debug to see what other object we might have collided with
             Debug.Log("Collision with non-enemy object: " + collision.name);
         }
-    }*/
+    }
 
 
 
-}
+}*/

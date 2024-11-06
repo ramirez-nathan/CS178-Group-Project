@@ -12,8 +12,12 @@ public class PlayerInputHandler : MonoBehaviour
     { 
         public InputAction move; // joystick/WASD
         public InputAction jump; // Space/South Button
-        public InputAction neutralGAttack; // neutral ground L/East
-        public InputAction dashGAttack; // moving ground L/East
+        public InputAction neutralLight; // neutral ground/air J/West button
+        public InputAction forwardLight; // moving ground/air J/West button
+        public InputAction downLight; // down ground/air J/West button
+        public InputAction neutralUpHeavy; // neutral/up ground/air I/L/North/East button
+        public InputAction forwardHeavy; // forward ground/air I/L/North/East button
+        public InputAction downHeavy; // down ground/air I/L/North/East button
     }
     PlayerActions playerControls;
 
@@ -51,9 +55,13 @@ public class PlayerInputHandler : MonoBehaviour
         // Subscribe to input actions
         playerControls.move = playerInput.actions["Move"];
         playerControls.jump = playerInput.actions["Jump"];
-        playerControls.neutralGAttack = playerInput.actions["Jab"];
-        playerControls.dashGAttack = playerInput.actions["DashAttack"];
-        
+        playerControls.neutralLight = playerInput.actions["NeutralLight"];
+        playerControls.forwardLight = playerInput.actions["ForwardLight"];
+        playerControls.downLight = playerInput.actions["DownLight"];
+        playerControls.neutralUpHeavy = playerInput.actions["NeutralUpHeavy"];
+        playerControls.forwardHeavy = playerInput.actions["ForwardHeavy"];
+        playerControls.downHeavy = playerInput.actions["DownHeavy"];
+
         playerControls.jump.started += playerMovement.Jump;  // Track the jump press
         playerControls.jump.canceled += playerMovement.Jump; // Track the jump release
 

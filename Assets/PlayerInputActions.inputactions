@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jab",
+                    "name": "NeutralLight",
                     "type": "Button",
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
                     "expectedControlType": "",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DashAttack",
+                    "name": "ForwardLight",
                     "type": "Button",
                     "id": "e500d2ff-404e-4538-8f25-53635286e63a",
                     "expectedControlType": "",
@@ -42,12 +42,39 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interact",
+                    "name": "DownLight",
                     "type": "Button",
-                    "id": "852140f2-7766-474d-8707-702459ba45f3",
+                    "id": "f1b5f4f9-58bb-49fe-9633-21d2f13ed9eb",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NeutralUpHeavy",
+                    "type": "Button",
+                    "id": "814fd044-e5bd-435c-a09e-03da5f19b061",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ForwardHeavy",
+                    "type": "Button",
+                    "id": "6a840336-0e3d-43da-af78-a2765c997724",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DownHeavy",
+                    "type": "Button",
+                    "id": "ba72616a-98c2-449e-8998-13e5091fee8a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -72,7 +99,7 @@
                     "name": "Next",
                     "type": "Button",
                     "id": "b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -94,6 +121,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "852140f2-7766-474d-8707-702459ba45f3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -269,7 +305,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Jab",
+                    "action": "NeutralLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -280,7 +316,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Jab",
+                    "action": "NeutralLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -291,7 +327,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "Jab",
+                    "action": "NeutralLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -302,7 +338,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Jab",
+                    "action": "NeutralLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -313,29 +349,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Jab",
+                    "action": "NeutralLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "b3c1c7f0-bd20-4ee7-a0f1-899b24bca6d7",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Jab",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "79d9e204-f0b9-48db-b28d-18273eadef2a",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jab",
+                    "action": "NeutralLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -500,29 +525,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DashAttack",
+                    "action": "ForwardLight",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "modifier",
+                    "name": "Binding",
                     "id": "f55dc268-9b04-45ce-a095-ade85928d3f1",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "DashAttack",
+                    "action": "ForwardLight",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "binding",
+                    "name": "Modifier",
                     "id": "d6ebb0b7-6057-4f7f-8cee-96a00a4f5852",
-                    "path": "<Gamepad>/leftStick/x",
+                    "path": "<Joystick>/stick/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "DashAttack",
+                    "groups": ";Gamepad;Joystick",
+                    "action": "ForwardLight",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -533,29 +558,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DashAttack",
+                    "action": "ForwardLight",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "modifier",
+                    "name": "Binding",
                     "id": "cd82f53a-27ae-4065-a7bf-bd9c2ac0f8bd",
-                    "path": "<Keyboard>/l",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "DashAttack",
+                    "action": "ForwardLight",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "binding",
+                    "name": "Modifier",
                     "id": "5f9b6b71-a90e-40f8-8716-47d903c53f31",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DashAttack",
+                    "action": "ForwardLight",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -566,42 +591,339 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DashAttack",
+                    "action": "ForwardLight",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "modifier",
+                    "name": "Binding",
                     "id": "c3175bae-b7a7-4fb4-9358-34d8d69c614e",
-                    "path": "<Keyboard>/l",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "DashAttack",
+                    "action": "ForwardLight",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "binding",
+                    "name": "Modifier",
                     "id": "44367587-ae7c-4745-b2a5-fdbf8791084b",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DashAttack",
+                    "action": "ForwardLight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Joystick: Down",
+                    "id": "3029ed95-b536-4039-8fa5-d4e3212696d2",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownLight",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "9876544c-4b6f-4130-ab02-cbab360e05d5",
+                    "path": "<Joystick>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad;Joystick",
+                    "action": "DownLight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "b8d7d1f6-3a8e-4a00-bb1e-b594be4efca6",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownLight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "6e312d12-924d-4a5c-9818-1bdc4e295988",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownLight",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "4c153f00-bed0-415c-a76d-bed10763540e",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownLight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "eadd2c35-1a46-42f1-88c8-5a934ecd630c",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownLight",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "a5493d1c-1efb-49e3-94d4-88725cc65f43",
-                    "path": "",
+                    "id": "c2f25c92-8b37-4bb3-b940-c3ee0d4eb483",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad;Joystick",
+                    "action": "NeutralUpHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ffb07975-01e1-4d45-b352-093462269981",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DashAttack",
+                    "action": "NeutralUpHeavy",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0bc4990-b6b1-4146-8f38-c19d595fd619",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NeutralUpHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "093031db-047d-433b-b706-78af7914216f",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NeutralUpHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Joystick: Heavy North",
+                    "id": "319bd830-8a30-4ca8-aef2-188e0a0a0193",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Binding",
+                    "id": "e5e4b1ee-ec0e-4c0e-aa54-c562ef23bf8c",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Modifier",
+                    "id": "c4be10d1-d1ef-48f8-a286-9187d7878c09",
+                    "path": "<Joystick>/stick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Joystick: Heavy East",
+                    "id": "a868059c-5c97-48a9-9d0a-8098cb66b993",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Binding",
+                    "id": "48e5e690-3a4c-4dcb-a872-305ab360f515",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Modifier",
+                    "id": "f4362a81-e5fe-40d7-b9fe-07e47faee7aa",
+                    "path": "<Joystick>/stick/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "KB Left: I",
+                    "id": "a9bbf501-bf0b-46c4-9096-b41b174b9e03",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "53dcf818-5b5f-475f-aa4e-137d2f9374d3",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "a095e60e-6e6c-41a9-9205-ffe08804b112",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "KB Left: L",
+                    "id": "a4fb896d-d70c-4d49-a2a7-a8ee994a071f",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "dea63360-73dc-4368-bfed-b2dddbd1b4f6",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "af9546e5-46b1-4f58-8159-2ad95fe5fb7d",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ForwardHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Joystick Heavy",
+                    "id": "c897ad27-19a9-4854-8fd1-2174abacd514",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownHeavy",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "527cf0fe-86a0-421a-909c-80d3c8f90a22",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "ee479b76-f053-4a2a-a61a-ed872c3d34d1",
+                    "path": "<Joystick>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "KB Down",
+                    "id": "6717abb2-40ac-485f-a8d3-067b1d56e04b",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownHeavy",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "fff8402e-95fb-4942-84a1-dfbd15581888",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "4b121df1-86a6-4082-8301-1566e0f88493",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DownHeavy",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
