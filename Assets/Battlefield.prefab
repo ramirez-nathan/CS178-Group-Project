@@ -186,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 3924697654330539456}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.04, y: 4.27, z: -0.05531808}
+  m_LocalPosition: {x: 0.84, y: 4.27, z: -0.05531808}
   m_LocalScale: {x: 4.0699997, y: 0.375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -484,7 +484,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 199188166359146888, guid: f9021777356277e4a85c28cb8d6a585b, type: 3}
       propertyPath: m_Name
-      value: Battlefield Variant
+      value: Battlefield
       objectReference: {fileID: 0}
     - target: {fileID: 1182853275564549767, guid: f9021777356277e4a85c28cb8d6a585b, type: 3}
       propertyPath: m_LocalPosition.x
