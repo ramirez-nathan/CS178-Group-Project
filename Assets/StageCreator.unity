@@ -130,6 +130,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 396631302722351334, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
+      propertyPath: m_Color.b
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 396631302722351334, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 396631302722351334, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
+      propertyPath: m_Color.r
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 400419102893436481, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
+      propertyPath: m_Color.b
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 400419102893436481, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 400419102893436481, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
+      propertyPath: m_Color.r
+      value: 0.49019608
+      objectReference: {fileID: 0}
     - target: {fileID: 754297394599455071, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
       propertyPath: m_Name
       value: Battlefield
@@ -173,6 +197,18 @@ PrefabInstance:
     - target: {fileID: 1791925941656137296, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339863576456660675, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
+      propertyPath: m_Color.b
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339863576456660675, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
+      propertyPath: m_Color.g
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339863576456660675, guid: 1ba10e47613a95f4bbd38cb440ffd281, type: 3}
+      propertyPath: m_Color.r
+      value: 0.49019608
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -264,9 +300,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bbf75ca351e5ba74fa900c0b9bf04627, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
