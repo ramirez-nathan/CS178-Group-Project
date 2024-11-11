@@ -1245,12 +1245,12 @@ Transform:
   m_GameObject: {fileID: 885136146}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28881836, y: -0.09234619, z: 0.05531808}
+  m_LocalPosition: {x: -2.0005794, y: 1.026665, z: -9.75846}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 637264479}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1763530488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &933269180
 GameObject:
@@ -2523,6 +2523,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8620890024485145051}
+  - {fileID: 2108027669}
+  - {fileID: 885136147}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1763530489
@@ -2537,6 +2539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba09c4e84b733740be634c43f73ecd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stagePrefabs: []
 --- !u!1 &1890947520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,12 +2856,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108027667}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7691749, y: 0.8785924, z: 0.018915165}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.942586, y: 1.9976035, z: -9.794863}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1763530488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5910478215569294780
 PrefabInstance:
@@ -3048,10 +3051,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1710004193}
+  - {fileID: 1763530488}
   - {fileID: 392763474}
-  - {fileID: 885136147}
   - {fileID: 1931649554}
-  - {fileID: 2108027669}
   - {fileID: 933269184}
   - {fileID: 751155554}
   - {fileID: 1475954238}
@@ -3060,4 +3062,3 @@ SceneRoots:
   - {fileID: 5910478215569294780}
   - {fileID: 21432083}
   - {fileID: 371218712}
-  - {fileID: 1763530488}
