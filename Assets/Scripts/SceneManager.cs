@@ -37,5 +37,10 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Game");  
     }
 
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
 
 }
