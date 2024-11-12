@@ -6,7 +6,7 @@ using UnityEngine;
 public class gameOverTextScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI winnerText;
-    public PlayerScript player;
+    public PlayerMain player;
     public enemyScript enemy;
     // Start is called before the first frame update
     void Start()

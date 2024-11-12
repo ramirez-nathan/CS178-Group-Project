@@ -19,22 +19,24 @@ public class PlayerInputHandler : MonoBehaviour
         public InputAction forwardHeavy; // forward ground/air I/L/North/East button
         public InputAction downHeavy; // down ground/air I/L/North/East button
     }
-    PlayerActions playerControls;
+    public PlayerActions playerControls;
 
-    private PlayerMovement playerMovement;
-    private PlayerInput playerInput; 
+    private PlayerMain playerMain;
+    private PlayerInput playerInput;
     
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+        
         // Finds all objects with playermovement component attached
-        var playerMovements = FindObjectsOfType<PlayerMovement>();
+        var playerMains = FindObjectsOfType<PlayerMain>();
 
         // retrieves player index 
         var index = playerInput.playerIndex;
-
+        
         // Finds the PlayerMovement with the matching player index to associate it with this player
-        playerMovement = playerMovements.FirstOrDefault(m => m.GetPlayerIndex() == index);
+        playerMain = playerMains.FirstOrDefault(m => m.GetPlayerIndex() == index);
     }
     // Start is called before the first frame update
     void Start()
@@ -45,9 +47,10 @@ public class PlayerInputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMovement.currentVelocity = playerMovement.playerRigidBody.velocity;
-        playerMovement.currentVelocity.x = playerControls.move.ReadValue<Vector2>().x * playerMovement.moveSpeed;
-        playerMovement.playerRigidBody.velocity = playerMovement.currentVelocity;
+        
+        //playerMain.currentVelocity = playerMain.playerRigidBody.velocity;
+        //playerMain.currentVelocity.x = playerControls.move.ReadValue<Vector2>().x * playerMain.moveSpeed;
+        //playerMain.playerRigidBody.velocity = playerMain.currentVelocity;
     }
 
     private void OnEnable()
@@ -62,8 +65,11 @@ public class PlayerInputHandler : MonoBehaviour
         playerControls.forwardHeavy = playerInput.actions["ForwardHeavy"];
         playerControls.downHeavy = playerInput.actions["DownHeavy"];
 
-        playerControls.jump.started += playerMovement.Jump;  // Track the jump press
-        playerControls.jump.canceled += playerMovement.Jump; // Track the jump release
+        playerControls.move.started += playerMain.Move;
+        playerControls.move.canceled += playerMain.Move;
+
+        playerControls.jump.started += playerMain.Jump;  // Track the jump press
+        playerControls.jump.canceled += playerMain.Jump; // Track the jump release
 
         //playerControls.neutralGAttack.started += NeutralGAttack;
         //playerControls.dashGAttack.started += DashGAttack;
@@ -72,8 +78,11 @@ public class PlayerInputHandler : MonoBehaviour
     // Unsubscribe all methods to avoid memory leaks
     private void OnDisable()
     {
-        playerControls.jump.started -= playerMovement.Jump;
-        playerControls.jump.canceled -= playerMovement.Jump;
+        playerControls.move.started -= playerMain.Move;
+        playerControls.move.canceled -= playerMain.Move;
+
+        playerControls.jump.started -= playerMain.Jump;
+        playerControls.jump.canceled -= playerMain.Jump;
 
         //playerControls.neutralGAttack.started -= NeutralGAttack;
         //playerControls.dashGAttack.started -= DashGAttack;

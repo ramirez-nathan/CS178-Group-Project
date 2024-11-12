@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using PlayerStates;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using static UnityEngine.InputSystem.InputAction;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMain : MonoBehaviour
 {
     [SerializeField]
     public float moveSpeed = 10f;
@@ -15,13 +14,29 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private int playerIndex = 0; // index to differentiate the 2 players
-
+    public enum PlayerState
+    {
+        Idle,
+        Grounded,
+        Airborne,
+        Attacking,
+        TakingDamage,
+        Dead
+    }
+    public enum PlayerJumpState
+    {
+        JumpHeld,
+        JumpReleased
+    }
     public Rigidbody2D playerRigidBody;
     public GameObject stage;
+
+    public PlayerInputHandler playerInputHandler;
+    public PlayerStateMachine playerStateMachine;
+
     public PlayerState playerState;
-
-    //private Vector2 inputVector = Vector2.zero;
-
+    public Vector2 moveInput { get; private set; }
+    public bool holdingMove = false;
     // Jump Logic
     public PlayerJumpState playerJumpState;
     public int jumpCount = 0;
@@ -42,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
         playerJumpState = PlayerJumpState.JumpReleased;
         playerState = PlayerState.Idle;
         playerRigidBody.velocity = Vector2.zero;
+
+        playerStateMachine = GetComponent<PlayerStateMachine>();
+        playerStateMachine.Initialize(this); // Pass the PlayerMain instance
     }
     public int GetPlayerIndex()
     {
@@ -50,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update() // make this a virtual void
     {
-
+        //moveInput = playerInputHandler.playerControls.move.ReadValue<Vector2>();
     }
     public void Jump(InputAction.CallbackContext context)
     {
@@ -98,8 +116,27 @@ public class PlayerMovement : MonoBehaviour
         playerRigidBody.velocity = currentVelocity;
     }
 
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        currentVelocity = playerRigidBody.velocity;
+        if (context.phase == InputActionPhase.Started)
+        {
+            currentVelocity.x = context.ReadValue<Vector2>().x > 0 ? 1 * moveSpeed : -1 * moveSpeed;
+            playerRigidBody.velocity = currentVelocity;
+            holdingMove = true;
+        }
+        else
+        {
+            currentVelocity.x = 0;
+            playerRigidBody.velocity = currentVelocity;
+            holdingMove = false;
+        }
+    }
     private void FixedUpdate() // make this a virtual void 
     {
+        currentVelocity.x = holdingMove ? 1 * moveSpeed : -1 * moveSpeed;
+        playerRigidBody.velocity = currentVelocity;
         if (playerJumpState == PlayerJumpState.JumpHeld) jumpFrameCounter++; // track frames that jump button is held for
         if (jumpFrameCounter == 5 && playerState == PlayerState.Grounded) // bro took too long, long hop it is 
         {
