@@ -2,6 +2,8 @@
 
 ![Unity](https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white)
 ![Aseprite](https://img.shields.io/badge/Aseprite-FFFFFF?style=for-the-badge&logo=Aseprite&logoColor=#7D929E)
+
+
  Developers: [Nathan Ramirez](https://github.com/ramirez-nathan),
             [Russell Ly](https://github.com/Ampherost),
             [Dylan Tang](https://github.com/TangDylan1)
