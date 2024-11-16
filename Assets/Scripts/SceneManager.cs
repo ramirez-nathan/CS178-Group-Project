@@ -39,5 +39,14 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
+    public void EndGame()
+    {
+        // Quit the application
+        Application.Quit();
+
+        // Debug message to confirm the function is called (only visible in the Unity editor)
+        Debug.Log("Game has been quit.");
+    }
+
 
 }
