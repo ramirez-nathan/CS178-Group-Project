@@ -39,6 +39,16 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
+    public void LoadStageSelection()
+    {
+        SceneManager.LoadScene("StageSelection");
+    }
+
+    public void LoadCharacterCustomization()
+    {
+        SceneManager.LoadScene("CharacterCustomizer");
+    }
+
     public void EndGame()
     {
         // Quit the application
