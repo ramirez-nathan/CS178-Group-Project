@@ -207,6 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 99210504}
+  - component: {fileID: 99210505}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -229,6 +230,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &99210505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99210503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f40c21c7a585c43ba7b7b2d2323c85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &135483606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,11 +1466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee3e3be40e76984b972e06988d7494b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1345803990 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6869231876988183090, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
-  m_PrefabInstance: {fileID: 7242318901828086764}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1475954237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,11 +1647,6 @@ MonoBehaviour:
   winnerText: {fileID: 1483382981}
   player: {fileID: 0}
   enemy: {fileID: 392763475}
---- !u!1 &1532755291 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4459099771063867627, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
-  m_PrefabInstance: {fileID: 7242318901828086764}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1667594064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,7 +1849,7 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   playerIndex: 1
   playerRigidBody: {fileID: 0}
-  stage: {fileID: 1345803990}
+  stage: {fileID: 0}
   playerState: 0
   playerJumpState: 0
   jumpCount: 0
@@ -1986,7 +1989,7 @@ MonoBehaviour:
   currentVelocity: {x: 0, y: 0}
   playerIndex: 0
   playerRigidBody: {fileID: 0}
-  stage: {fileID: 1345803990}
+  stage: {fileID: 0}
   playerState: 0
   playerJumpState: 0
   jumpCount: 0
@@ -2106,7 +2109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidBody: {fileID: 1672198333}
-  stage: {fileID: 1532755291}
+  stage: {fileID: 0}
   deathSound: {fileID: 4422278638818716002, guid: aa0a40e1a67b19f4dad91c60de75e594, type: 3}
   attackCollider: {fileID: 0}
   gameOverScween: {fileID: 999917834}
@@ -2667,6 +2670,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1617535635265751814, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
+      propertyPath: stagePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617535635265751814, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
+      propertyPath: stagePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1878030635645865646, guid: 5105cf0ac6bb896448be822925771719, type: 3}
+    - target: {fileID: 1617535635265751814, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
+      propertyPath: stagePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3797276334976131573, guid: b7ed52c35ee15d14c9e14986d4a223b9, type: 3}
+    - target: {fileID: 3375797071101602851, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4445012398057071388, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
       propertyPath: m_Name
       value: StageSelector
@@ -2712,7 +2731,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3375797071101602851, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
+    - {fileID: 7429045887883898843, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
+    - {fileID: -6791435107363043411, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
