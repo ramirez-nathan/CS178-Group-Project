@@ -6,7 +6,6 @@ public class StageSelectorScript : MonoBehaviour
 {
     public static StageSelectorScript Instance;  // Singleton instance
     public GameObject[] stagePrefabs;            // Array of stage prefabs
-
     private int selectedStageIndex = 0;          // Default stage index
 
     private void Awake()
@@ -23,10 +22,17 @@ public class StageSelectorScript : MonoBehaviour
         }
     }
 
-    // Method to select a stage
-    public void SelectStage(int stageIndex)
+    // Set the selected stage index
+    public void SelectStage(int index)
     {
-        selectedStageIndex = stageIndex;
+        if (index >= 0 && index < stagePrefabs.Length)
+        {
+            selectedStageIndex = index;
+        }
+        else
+        {
+            Debug.LogError("Invalid stage index selected!");
+        }
     }
 
     // Method to get the selected stage prefab
