@@ -2677,11 +2677,11 @@ PrefabInstance:
     - target: {fileID: 1617535635265751814, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
       propertyPath: stagePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 2978266891219781055, guid: 520ed691667683d49a1cb836b716fa49, type: 3}
+      objectReference: {fileID: 2018292726141879105, guid: b7ed52c35ee15d14c9e14986d4a223b9, type: 3}
     - target: {fileID: 1617535635265751814, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
       propertyPath: stagePrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 3797276334976131573, guid: b7ed52c35ee15d14c9e14986d4a223b9, type: 3}
+      objectReference: {fileID: 985151404168836887, guid: e91ec998deef1d74da6f3b1625b17261, type: 3}
     - target: {fileID: 3375797071101602851, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2690,13 +2690,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageSelector
       objectReference: {fileID: 0}
+    - target: {fileID: 5740275195305495919, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6564307624417282949, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7117609
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6564307624417282949, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1190112
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6564307624417282949, guid: 8f2532a885ad14d42a1eee66ae206e29, type: 3}
       propertyPath: m_LocalPosition.z
