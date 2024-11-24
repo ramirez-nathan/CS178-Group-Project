@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterCustomizerScript : MonoBehaviour
 {
+    public PlayerMain playermain;
     // Start is called before the first frame update
     void Start()
     {
