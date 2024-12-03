@@ -61,6 +61,12 @@ public class PlayerMain : MonoBehaviour
         playerStateMachine = GetComponent<PlayerStateMachine>();
         playerStateMachine.Initialize(this); // Pass the PlayerMain instance
     }
+
+    public void Initialize(PlayerInputHandler pInputHandler)
+    {
+        playerInputHandler = pInputHandler;
+    }
+
     public int GetPlayerIndex()
     {
         return playerIndex;
@@ -68,7 +74,7 @@ public class PlayerMain : MonoBehaviour
     // Update is called once per frame
     void Update() // make this a virtual void
     {
-        //moveInput = playerInputHandler.playerControls.move.ReadValue<Vector2>();
+        moveInput = playerInputHandler.playerControls.move.ReadValue<Vector2>(); // grab input vector here
     }
     public void Jump(InputAction.CallbackContext context)
     {
@@ -119,24 +125,24 @@ public class PlayerMain : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        currentVelocity = playerRigidBody.velocity;
-        if (context.phase == InputActionPhase.Started)
-        {
-            currentVelocity.x = context.ReadValue<Vector2>().x > 0 ? 1 * moveSpeed : -1 * moveSpeed;
-            playerRigidBody.velocity = currentVelocity;
-            holdingMove = true;
-        }
-        else
-        {
-            currentVelocity.x = 0;
-            playerRigidBody.velocity = currentVelocity;
-            holdingMove = false;
-        }
+        //currentVelocity = playerRigidBody.velocity;
+        //if (context.phase == InputActionPhase.Started)
+        //{
+        //    currentVelocity.x = context.ReadValue<Vector2>().x > 0 ? 1 * moveSpeed : -1 * moveSpeed;
+        //    playerRigidBody.velocity = currentVelocity;
+        //    holdingMove = true;
+        //}
+        //else
+        //{
+        //    currentVelocity.x = 0;
+        //    playerRigidBody.velocity = currentVelocity;
+        //    holdingMove = false;
+        //}
     }
     private void FixedUpdate() // make this a virtual void 
     {
-        currentVelocity.x = holdingMove ? 1 * moveSpeed : -1 * moveSpeed;
-        playerRigidBody.velocity = currentVelocity;
+        //currentVelocity.x = holdingMove ? 1 * moveSpeed : -1 * moveSpeed;
+        //playerRigidBody.velocity = currentVelocity;
         if (playerJumpState == PlayerJumpState.JumpHeld) jumpFrameCounter++; // track frames that jump button is held for
         if (jumpFrameCounter == 5 && playerState == PlayerState.Grounded) // bro took too long, long hop it is 
         {

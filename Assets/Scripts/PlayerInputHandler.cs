@@ -37,6 +37,7 @@ public class PlayerInputHandler : MonoBehaviour
         
         // Finds the PlayerMovement with the matching player index to associate it with this player
         playerMain = playerMains.FirstOrDefault(m => m.GetPlayerIndex() == index);
+        playerMain.Initialize(this); 
     }
     // Start is called before the first frame update
     void Start()
@@ -47,10 +48,7 @@ public class PlayerInputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        //playerMain.currentVelocity = playerMain.playerRigidBody.velocity;
-        //playerMain.currentVelocity.x = playerControls.move.ReadValue<Vector2>().x * playerMain.moveSpeed;
-        //playerMain.playerRigidBody.velocity = playerMain.currentVelocity;
+       
     }
 
     private void OnEnable()

@@ -25,13 +25,12 @@ public class PlayerMovingState : PlayerBaseState
 
     public override void UpdatePhysics()
     {
-        /*var playerMain = _sm.playerMain;
-        var input = playerMain.moveInput;
-
-        var currentVelocity = playerMain.playerRigidBody.velocity;
-        currentVelocity.x = input.x * playerMain.moveSpeed;
-        playerMain.playerRigidBody.velocity = currentVelocity;
-        */
+        var input = _sm.playerMain.moveInput;
+        
+        var currentVelocity = _sm.playerMain.playerRigidBody.velocity;
+        currentVelocity.x = input.x * _sm.playerMain.moveSpeed;
+        _sm.playerMain.playerRigidBody.velocity = currentVelocity;
+        
         base.UpdatePhysics();
     }
 }

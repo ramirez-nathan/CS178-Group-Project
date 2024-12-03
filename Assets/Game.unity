@@ -291,17 +291,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3523657901675920944, guid: 219dd724e615c954491444077725ea29, type: 3}
   m_PrefabInstance: {fileID: 5910478215569294780}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &345422983 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9210238306827195572, guid: 219dd724e615c954491444077725ea29, type: 3}
-  m_PrefabInstance: {fileID: 5910478215569294780}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345422982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a6be6cda553fa4f93a81c3149153dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &371218712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1495,7 +1484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1, y: 3}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &877541175
@@ -2204,9 +2193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55244ac05d33e3f42951ba11d2d6a69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winnerText: {fileID: 1483382981}
-  player: {fileID: 0}
-  enemy: {fileID: 392763475}
 --- !u!1 &1532755291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,9 +2401,10 @@ MonoBehaviour:
   playerIndex: 1
   playerRigidBody: {fileID: 0}
   stage: {fileID: 1345803990}
-  playerInputHandler: {fileID: 345422983}
-  playerStateMachine: {fileID: 1667594074}
+  playerInputHandler: {fileID: 0}
+  playerStateMachine: {fileID: 0}
   playerState: 0
+  holdingMove: 0
   playerJumpState: 0
   jumpCount: 0
   jumpFrameCounter: 0
@@ -2569,9 +2556,10 @@ MonoBehaviour:
   playerIndex: 0
   playerRigidBody: {fileID: 0}
   stage: {fileID: 1345803990}
-  playerInputHandler: {fileID: 345422983}
-  playerStateMachine: {fileID: 1672198342}
+  playerInputHandler: {fileID: 0}
+  playerStateMachine: {fileID: 0}
   playerState: 0
+  holdingMove: 0
   playerJumpState: 0
   jumpCount: 0
   jumpFrameCounter: 0
@@ -2808,7 +2796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83310a73477d20f4d9d507b68bc58967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 1683673782}
 --- !u!1 &1710004190
 GameObject:
   m_ObjectHideFlags: 0
