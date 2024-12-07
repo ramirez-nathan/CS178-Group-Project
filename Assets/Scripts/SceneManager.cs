@@ -7,9 +7,6 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    public Button selectModeButton;
-    public Button startGameButton;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +32,30 @@ public class MenuManager : MonoBehaviour
     public void LoadGameplayScene()
     {
         SceneManager.LoadScene("Game");  
+    }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void LoadStageSelection()
+    {
+        SceneManager.LoadScene("StageSelection");
+    }
+
+    public void LoadCharacterCustomization()
+    {
+        SceneManager.LoadScene("CharacterCustomizer");
+    }
+
+    public void EndGame()
+    {
+        // Quit the application
+        Application.Quit();
+
+        // Debug message to confirm the function is called (only visible in the Unity editor)
+        Debug.Log("Game has been quit.");
     }
 
 
